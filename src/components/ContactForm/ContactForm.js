@@ -1,13 +1,21 @@
 import './../../dist/App.css';
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
+import useOutsideRef from './../../hooks/outsideRef';
+
 
 function ContactForm(props) {
-
+  const { setVisibilityOfForm, style } = props;
+  const wrapper = useRef(null);
+  const handlesettingVisibilityOfForm = useCallback(() => setVisibilityOfForm(false), []);
+  useOutsideRef(wrapper, handlesettingVisibilityOfForm)
   
   return (
-    <div style={props.style}>
+    <div 
+    style={style}
+    ref={wrapper}
+    >
         <h4>If you want us to perform in your event, please fill the form to contact with our manager!</h4>
-        <div>
+        <div> 
             <p>Your name:</p>
             <input label="name"/>
             <p>Your surname:</p>

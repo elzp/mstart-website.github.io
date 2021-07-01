@@ -10,11 +10,12 @@ function App() {
 
   const [visibilityOfForm, setVisibilityOfForm] = useState(false);
   const [formStyle, setFormStyle] = useState(defaultformStyle);
+  const [timesOfStyleChanges, setTimesOfStyleChanges ] = useState(0);
   
 
-  const handleFormButtonClick = () =>{
+  const handleContactButtonClick = () =>{
     setVisibilityOfForm(true);
-    setFormStyle(
+    if (timesOfStyleChanges === 0){setFormStyle(
       Object.assign(
         formStyle, 
         parametersOfSlideForm(
@@ -23,7 +24,10 @@ function App() {
           "inline"
         )
       )    
-    )
+    );
+    // added to not append additional style properties to css, which gives error
+    setTimesOfStyleChanges(timesOfStyleChanges+1);
+    }
   }
 
   return (
@@ -47,14 +51,13 @@ function App() {
           <About />
           </div>
             <button id="btn-contact" 
-            onClick={handleFormButtonClick}
+            disabled={visibilityOfForm}
+            onClick={handleContactButtonClick}
             >Contact us!</button>
          </div>
          { visibilityOfForm &&
          <ContactForm 
          style={formStyle} 
-         changeStyle={setFormStyle} 
-         visibilityOfForm={visibilityOfForm}
          setVisibilityOfForm={setVisibilityOfForm}
          />
          }
