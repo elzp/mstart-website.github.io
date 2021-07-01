@@ -5,7 +5,7 @@ function ContactForm(props) {
 
   
   return (
-    <div>
+    <div style={props.style}>
         <h4>If you want us to perform in your event, please fill the form to contact with our manager!</h4>
         <div>
             <p>Your name:</p>

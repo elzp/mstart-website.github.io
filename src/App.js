@@ -3,8 +3,28 @@ import img from './Birdy-header.jpg'
 import About from './components/About/About'
 import ContactForm from './components/ContactForm/ContactForm'
 import Verification from './components/Verification/Verification'
+import { parametersOfSlideForm, defaultformStyle } from './functionsAndVars';
+import { useState } from 'react';
 
 function App() {
+
+  const [visibilityOfForm, setVisibilityOfForm] = useState(false);
+  const [formStyle, setFormStyle] = useState(defaultformStyle);
+  
+
+  const handleFormButtonClick = () =>{
+    setVisibilityOfForm(true);
+    setFormStyle(
+      Object.assign(
+        formStyle, 
+        parametersOfSlideForm(
+          3, 
+          "slidein", 
+          "inline"
+        )
+      )    
+    )
+  }
 
   return (
     <div className="App">
@@ -26,10 +46,19 @@ function App() {
           <div>
           <About />
           </div>
-            <button id="btn-contact">Contact us!</button>
+            <button id="btn-contact" 
+            onClick={handleFormButtonClick}
+            >Contact us!</button>
          </div>
-         <ContactForm />
-         <Verification />
+         { visibilityOfForm &&
+         <ContactForm 
+         style={formStyle} 
+         changeStyle={setFormStyle} 
+         visibilityOfForm={visibilityOfForm}
+         setVisibilityOfForm={setVisibilityOfForm}
+         />
+         }
+         {/* <Verification /> */}
       </main>
     </div>
   );
