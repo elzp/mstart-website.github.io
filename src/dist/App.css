@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+}
+
+header div {
+  justify-self: center;
+}
+header div div {
+  width: 75%;
+  padding: 0;
+  box-shadow: inset 0px 0px 70px #201212;
+}
+header div img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: -1;
+}
+
+.about div {
+  margin: 3em 15vw 3em 15vw;
+  padding: 2% 2%;
+  background-color: grey;
+  border-radius: 25px;
+}
+
+iframe {
+  width: auto;
+  height: max-content;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@keyframes slidein {
+  0% {
+    transform: translate(200%, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}
+@keyframes slideout {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate();
+  }
+}
+@media (widh-max: 480px) {
+  .about div {
+    margin: 1% 5%;
+  }
+
+  header div {
+    width: 100%;
+  }
+}
