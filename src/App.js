@@ -14,8 +14,12 @@ function App() {
   const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
 
   const handleContactButtonClick = () =>{
+  
     setVisibilityOfForm(true);
-    if (timesOfStyleChanges === 0){setFormStyle(
+    if (timesOfStyleChanges === 0){
+        // added to not append additional style properties to css, which gives error
+    setTimesOfStyleChanges(timesOfStyleChanges+1);
+    setFormStyle(
       Object.assign(
         formStyle, 
         parametersOfSlideForm(
@@ -25,8 +29,7 @@ function App() {
         )
       )    
     );
-    // added to not append additional style properties to css, which gives error
-    setTimesOfStyleChanges(timesOfStyleChanges+1);
+  
     }
   }
 
