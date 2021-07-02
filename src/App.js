@@ -3,7 +3,7 @@ import img from './Birdy-header.jpg'
 import About from './components/About/About'
 import ContactForm from './components/ContactForm/ContactForm'
 import Verification from './components/Verification/Verification'
-import { parametersOfSlideForm, defaultformStyle } from './functionsAndVars';
+import { parametersOfSlideForm, defaultformStyle, getQuestion } from './functionsAndVars';
 import { useState } from 'react';
 
 function App() {
@@ -71,6 +71,7 @@ function App() {
          }
          {visibilityOfVerification &&
           <Verification
+          firstQuestion={getQuestion([])}
           /> 
           }
       </main>

@@ -1,12 +1,15 @@
 import './../../dist/App.css';
-import React from 'react';
-import { defaultVerificationStyle } from './../../functionsAndVars';
+import React, { useState } from 'react';
+import { getQuestion } from './../../functionsAndVars';
 
 function Verification(props) {
-    const question ={ question: 'First Question',
-                    answers: ['1', '2', '3']
-    }   
-      
+    // const question ={ question: 'First Question',
+    //                 answers: ['1', '2', '3']
+    // }  
+    const [questionData, setQuestionData] =useState(props.firstQuestion);
+    const {question, askedQuestions, answers, goodAnswer} = questionData;
+
+
   return (
     <div 
     className ="verification"
@@ -17,9 +20,9 @@ function Verification(props) {
             {question.question}
         </div>
         {question.answers.map((item) =><div key={item}>
-        <button className="questionsAnswer">{item}</button>
+        <button className="questionsAnswer"
+        >{item}</button>
         </div>)}
-        
     </div>
 
   );
