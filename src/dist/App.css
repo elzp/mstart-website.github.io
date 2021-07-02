@@ -35,11 +35,18 @@ iframe {
   height: max-content;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.verification {
+  width: 60vw;
+  height: 40vh;
+  justify-self: center;
+  background: #201212;
+  border: 1px solid red;
+  margin: 0;
+  top: 30vh;
+  left: 20vw;
+  position: fixed;
 }
+
 @keyframes slidein {
   0% {
     transform: translate(200%, 0);

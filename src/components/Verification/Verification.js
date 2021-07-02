@@ -1,5 +1,6 @@
 import './../../dist/App.css';
 import React from 'react';
+import { defaultVerificationStyle } from './../../functionsAndVars';
 
 function Verification(props) {
     const question ={ question: 'First Question',
@@ -7,7 +8,9 @@ function Verification(props) {
     }   
       
   return (
-    <div className ="about">
+    <div 
+    className ="verification"
+    >
         <h4>We must check if you're a person ;)</h4>
         <h6>Please answer 3 questions.</h6>
         <div className="question">

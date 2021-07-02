@@ -4,7 +4,7 @@ import useOutsideRef from './../../hooks/outsideRef';
 
 
 function ContactForm(props) {
-  const { setVisibilityOfForm, style } = props;
+  const { setVisibilityOfForm, style, handleSendingButtonClick } = props;
   const wrapper = useRef(null);
   const handlesettingVisibilityOfForm = useCallback(() => setVisibilityOfForm(false), []);
   useOutsideRef(wrapper, handlesettingVisibilityOfForm)
@@ -25,7 +25,10 @@ function ContactForm(props) {
             <p>Tell us e.g. when and where you want us to perform concert:</p>
             <textarea />
         </div>
-        <div><button id="btn-sendform" >Send your proposition.</button></div>
+        <div><button 
+        id="btn-sendform" 
+        onClick={handleSendingButtonClick}
+        >Send your proposition.</button></div>
 
     </div>
 

@@ -11,7 +11,7 @@ function App() {
   const [visibilityOfForm, setVisibilityOfForm] = useState(false);
   const [formStyle, setFormStyle] = useState(defaultformStyle);
   const [timesOfStyleChanges, setTimesOfStyleChanges ] = useState(0);
-  
+  const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
 
   const handleContactButtonClick = () =>{
     setVisibilityOfForm(true);
@@ -28,6 +28,10 @@ function App() {
     // added to not append additional style properties to css, which gives error
     setTimesOfStyleChanges(timesOfStyleChanges+1);
     }
+  }
+
+  const handleSendingButtonClick = () =>{
+    setvisibilityOfVerification(!visibilityOfVerification);
   }
 
   return (
@@ -59,9 +63,13 @@ function App() {
          <ContactForm 
          style={formStyle} 
          setVisibilityOfForm={setVisibilityOfForm}
+         handleSendingButtonClick={handleSendingButtonClick}
          />
          }
-         {/* <Verification /> */}
+         {visibilityOfVerification &&
+          <Verification
+          /> 
+          }
       </main>
     </div>
   );
