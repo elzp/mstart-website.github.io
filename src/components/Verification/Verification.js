@@ -1,13 +1,23 @@
 import './../../dist/App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getQuestion } from './../../functionsAndVars';
 
 function Verification(props) {
-    // const question ={ question: 'First Question',
-    //                 answers: ['1', '2', '3']
-    // }  
-    const [questionData, setQuestionData] =useState(props.firstQuestion);
-    const {question, askedQuestions, answers, goodAnswer} = questionData;
+
+    const [questionData, setQuestionData] =useState(getQuestion([]));//props.firstQuestion);
+
+    const {question: {question, answers, goodAnswer}, askedQuestions} = questionData;
+
+    const handleAnswering = (event) => {
+
+      const newQuestion = getQuestion(askedQuestions);
+      const {question:{question: textOfQuestion}} =  newQuestion;
+      if(textOfQuestion !==''){
+        setQuestionData(newQuestion);
+      }
+
+    }
+
 
 
   return (
@@ -17,10 +27,12 @@ function Verification(props) {
         <h4>We must check if you're a person ;)</h4>
         <h6>Please answer 3 questions.</h6>
         <div className="question">
-            {question.question}
+            text of: {question}
         </div>
-        {question.answers.map((item) =><div key={item}>
+        {answers.map((item, index) =><div key={index}>
         <button className="questionsAnswer"
+        onClick={(event, item)=>handleAnswering(event)}
+        value={item}
         >{item}</button>
         </div>)}
     </div>

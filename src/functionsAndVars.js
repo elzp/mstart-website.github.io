@@ -55,6 +55,8 @@ const questions = {
     goodAnswer: 3,
   }
 };
+// array with keys in question object
+const indexesArray = Object.keys(questions).map(it=>+it);
 
 // get question with answers
 
@@ -66,16 +68,39 @@ export const getQuestion = (
     answers: ["", "", ""],
     goodAnswer: "",
   };
-  
-  if(askedQuestions.length>5){
+  let answeredQuestions = askedQuestions;
+  if(askedQuestions.length===5){
     // If user answered 5 questions and didn't get 3 good answers <=> user isn't considered as a person.
-    askedQuestions = new Array(4);
-    return {question, askedQuestions}; 
+    answeredQuestions = new Array(4);
+    return {question, askedQuestions: answeredQuestions}; 
+  }
+  
+  //// choose different question every time
+
+  // get random number 
+  let random = 1;
+  let notAskedQuestions = [];
+
+  if (askedQuestions === []){
+    notAskedQuestions = indexesArray;
+    random = Math.ceil(Math.random()*notAskedQuestions.length);
+
+  }else{
+    // get  questions which haven't been asked
+    notAskedQuestions = indexesArray.filter(
+      it=>
+      // checks if number of question isn't in askedQuestions array
+      askedQuestions.every(it2=>it!==it2) 
+    )
+
+    random = Math.ceil(Math.random()*notAskedQuestions.length);
   }
 
-  const idOfChoosenQuestion = Math.ceil(Math.random()*(6-askedQuestions.length));
-  askedQuestions.push(idOfChoosenQuestion);
+  // choose id of question
+  const idOfChoosenQuestion = notAskedQuestions[random-1];
+ 
+  answeredQuestions =[...answeredQuestions, idOfChoosenQuestion];
   question = questions[idOfChoosenQuestion];
 
-  return {question, askedQuestions};
+  return {question, askedQuestions: answeredQuestions};
 }
