@@ -7,6 +7,7 @@ function Verification(props) {
     const [questionData, setQuestionData] =useState(getQuestion([]));//props.firstQuestion);
     const [numberOfGoodQuestions, setNumberOfGoodQuestions] = useState(0);
     const [text, settext] = useState('');
+    const [visibilityOfRestartButton, setVisibilityOfRestartButton] = useState(false);
 
     const {question: {question, answers, goodAnswer}, askedQuestions} = questionData;
     const errorText = 'you had 5 chanses and you did\'t get 3 good answers.';
@@ -24,23 +25,37 @@ function Verification(props) {
         setQuestionData(newQuestion);
       }
       else{ 
-        if(text !== sendText) settext(errorText);
+        if(text !== sendText) {
+        // user exceeded limit of 5 questions and didn't answered with 3 good answers
+          settext(errorText);
+        }
        }
     }
 
     // handling getting 3 good answers
     useEffect(()=>{
-      if(numberOfGoodQuestions===3 & (text !== errorText)) {
+      if(numberOfGoodQuestions===3){
         settext(sendText);
+
         // area to add function to send data from form 
       }
     }, [numberOfGoodQuestions])
 
-    // restarting process of verifying
+    //// restarting process of verifying
+    // show reset button
     useEffect(()=>{
-      if(text == errorText) {
+      if(text == errorText) { 
+      setVisibilityOfRestartButton(true);
       }
-    }, [numberOfGoodQuestions])
+    }, [text])
+  
+    const handleRestartButton = () => {
+      // setting every state to initial value
+      settext('');
+      setVisibilityOfRestartButton(false);
+      setQuestionData(getQuestion([]));
+      setNumberOfGoodQuestions(0);
+    }
 
   return (
     <div 
@@ -58,7 +73,13 @@ function Verification(props) {
         >{item}</button>
         </div>)}
         <div>{text}</div>
-
+        <div>
+          {visibilityOfRestartButton &&
+            <button
+            onClick={handleRestartButton}
+            >Restart</button>
+          }
+        </div>
     </div>
 
   );
