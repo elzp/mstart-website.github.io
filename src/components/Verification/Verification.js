@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getQuestion } from './../../functionsAndVars';
 
 function Verification(props) {
+    const { setvisibilityOfVerification } = props;
 
     const [questionData, setQuestionData] =useState(getQuestion([]));//props.firstQuestion);
     const [numberOfGoodQuestions, setNumberOfGoodQuestions] = useState(0);
@@ -61,16 +62,27 @@ function Verification(props) {
     useEffect(()=>{
       if(text == sendText) {
         setTimeout( () =>{
-        props.setvisibilityOfVerification(false);
+        setvisibilityOfVerification(false);
         },
         3000);
       };
     }, [text])
 
+    const handleExitButton = () => {
+      setVisibilityOfRestartButton(false);
+      setvisibilityOfVerification(false);
+    }
+
   return (
     <div 
     className ="verification"
     >
+        {visibilityOfRestartButton &&
+          <button
+          className="exit"
+          onClick={handleExitButton}
+          >x</button>
+          }
         <h4>We must check if you're a person ;)</h4>
         <h6>Please answer 3 questions.</h6>
         <div className="question">
