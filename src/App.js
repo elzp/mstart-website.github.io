@@ -12,9 +12,11 @@ function App() {
   const [formStyle, setFormStyle] = useState(defaultformStyle);
   const [timesOfStyleChanges, setTimesOfStyleChanges ] = useState(0);
   const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
+  const [wasDataFromFormSend, setDataFromFormWasSend] = useState(false);
 
   const handleContactButtonClick = () =>{
   
+    setDataFromFormWasSend(false); //added to not closing form, when it is opening after succesfully send data from form. 
     setVisibilityOfForm(true);
     if (timesOfStyleChanges === 0){
         // added to not append additional style properties to css, which gives error
@@ -67,12 +69,15 @@ function App() {
          style={formStyle} 
          setVisibilityOfForm={setVisibilityOfForm}
          handleSendingButtonClick={handleSendingButtonClick}
+         visibilityOfVerification={visibilityOfVerification}
+         wasDataFromFormSend={wasDataFromFormSend}
          />
          }
          {visibilityOfVerification &&
           <Verification
           firstQuestion={getQuestion([])}
           setvisibilityOfVerification={setvisibilityOfVerification}
+          setDataFromFormWasSend={setDataFromFormWasSend}
           /> 
           }
       </main>

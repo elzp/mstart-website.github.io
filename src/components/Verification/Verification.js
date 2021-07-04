@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getQuestion } from './../../functionsAndVars';
 
 function Verification(props) {
-    const { setvisibilityOfVerification } = props;
+    const { setvisibilityOfVerification, setDataFromFormWasSend } = props;
 
     const [questionData, setQuestionData] =useState(getQuestion([]));//props.firstQuestion);
     const [numberOfGoodQuestions, setNumberOfGoodQuestions] = useState(0);
@@ -63,10 +63,11 @@ function Verification(props) {
       if(text === sendText) {
         setTimeout( () =>{
         setvisibilityOfVerification(false);
+        setDataFromFormWasSend(true);// added to form tab be able to close automaticly
         },
         3000);
       };
-    }, [text, setvisibilityOfVerification])
+    }, [text, setvisibilityOfVerification, setDataFromFormWasSend])
 
     const handleExitButton = () => {
       setVisibilityOfRestartButton(false);
