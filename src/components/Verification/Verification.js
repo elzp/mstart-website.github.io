@@ -11,7 +11,7 @@ function Verification(props) {
 
     const {question: {question, answers, goodAnswer}, askedQuestions} = questionData;
     const errorText = 'you had 5 chanses and you did\'t get 3 good answers.';
-    const sendText = 'your\'e message was send';
+    const sendText = 'your\'e message was send. Verification tab will close after about 3 seconds.';
 
     const handleAnswering = (event) => {
       
@@ -56,6 +56,16 @@ function Verification(props) {
       setQuestionData(getQuestion([]));
       setNumberOfGoodQuestions(0);
     }
+
+    // handling exiting verification tab
+    useEffect(()=>{
+      if(text == sendText) {
+        setTimeout( () =>{
+        props.setvisibilityOfVerification(false);
+        },
+        3000);
+      };
+    }, [text])
 
   return (
     <div 

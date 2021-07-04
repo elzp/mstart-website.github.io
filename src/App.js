@@ -72,6 +72,7 @@ function App() {
          {visibilityOfVerification &&
           <Verification
           firstQuestion={getQuestion([])}
+          setvisibilityOfVerification={setvisibilityOfVerification}
           /> 
           }
       </main>
