@@ -17,7 +17,7 @@ function useOutsideRef (ref, setVisibility) {
          document.removeEventListener("mousedown", handleClickOutside);
       };
        
-   }, [ref])
+   }, [ref, setVisibility])
 
     
 }

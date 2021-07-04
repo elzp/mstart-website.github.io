@@ -6,7 +6,7 @@ import useOutsideRef from './../../hooks/outsideRef';
 function ContactForm(props) {
   const { setVisibilityOfForm, style, handleSendingButtonClick } = props;
   const wrapper = useRef(null);
-  const handlesettingVisibilityOfForm = useCallback(() => setVisibilityOfForm(false), []);
+  const handlesettingVisibilityOfForm = useCallback(() => setVisibilityOfForm(false), [setVisibilityOfForm]);
   useOutsideRef(wrapper, handlesettingVisibilityOfForm)
   
   return (

@@ -45,7 +45,7 @@ function Verification(props) {
     //// restarting process of verifying
     // show reset button
     useEffect(()=>{
-      if(text == errorText) { 
+      if(text === errorText) { 
       setVisibilityOfRestartButton(true);
       }
     }, [text])
@@ -60,13 +60,13 @@ function Verification(props) {
 
     // handling exiting verification tab
     useEffect(()=>{
-      if(text == sendText) {
+      if(text === sendText) {
         setTimeout( () =>{
         setvisibilityOfVerification(false);
         },
         3000);
       };
-    }, [text])
+    }, [text, setvisibilityOfVerification])
 
     const handleExitButton = () => {
       setVisibilityOfRestartButton(false);
