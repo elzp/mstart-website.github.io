@@ -40,11 +40,14 @@ function ContactForm(props) {
 
   
   const handleClickingButtonToSend = () => {
-    if(nameError==="" & 
-    surnameError==="" & 
-    emailError==="" & 
-    messageError==="" & 
-    phoneError === ""
+    if(//nameError==="" & 
+    // surnameError==="" & 
+    // emailError==="" & 
+    // messageError==="" & 
+    // phoneError === "" &
+    formValues[formAreaNames[2]] !== "" &
+    formValues[formAreaNames[3]] !== "" &
+    formValues[formAreaNames[4]] !== ""
     ){
       handleSendingButtonClick();
     };
