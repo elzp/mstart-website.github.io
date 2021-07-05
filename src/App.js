@@ -1,5 +1,5 @@
 import './dist/App.css';
-import img from './Birdy-header.jpg'
+import img from './header-american-songwriter.jpg'
 import About from './components/About/About'
 import ContactForm from './components/ContactForm/ContactForm'
 import Verification from './components/Verification/Verification'
@@ -43,17 +43,22 @@ function App() {
     <div className="App">
       <header>
         <div>
+          
           <div> 
+          <h1>BIRDY</h1>
           <img src={img} alt="header-img"></img>
           </div>
         </div>
       </header>
       <main> 
         <div>
-        {/* <iframe width="450" height="auto" src="https://www.youtube.com/embed/OmLNs6zQIHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+        <iframe width="450" height="auto" src="https://www.youtube.com/embed/OmLNs6zQIHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div>
-          {/* <iframe width="450" height="auto" src="https://www.youtube.com/embed/WJTXDCh2YiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+          <iframe width="450" height="auto" src="https://www.youtube.com/embed/WJTXDCh2YiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6K25KhCq7p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div>
           <div>
@@ -62,7 +67,7 @@ function App() {
             <button id="btn-contact" 
             disabled={visibilityOfForm}
             onClick={handleContactButtonClick}
-            >Contact us!</button>
+            >Contact with us!</button>
          </div>
          { visibilityOfForm &&
          <ContactForm 
@@ -78,6 +83,7 @@ function App() {
           firstQuestion={getQuestion([])}
           setvisibilityOfVerification={setvisibilityOfVerification}
           setDataFromFormWasSend={setDataFromFormWasSend}
+          setVisibilityOfForm={setVisibilityOfForm}
           /> 
           }
       </main>

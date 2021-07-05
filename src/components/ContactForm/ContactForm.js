@@ -5,7 +5,7 @@ import useOutsideRef from './../../hooks/outsideRef';
 
 function ContactForm(props) {
   const { setVisibilityOfForm, style, handleSendingButtonClick,
-   visibilityOfVerification, wasDataFromFormSend 
+   visibilityOfVerification, wasDataFromFormSend
 } = props;
   const wrapper = useRef(null);
   const handlesettingVisibilityOfForm = useCallback(() => {
@@ -21,14 +21,14 @@ function ContactForm(props) {
   useOutsideRef(wrapper, handlesettingVisibilityOfForm)
   
   const formAreaNames = ["username", "surname", "e-mail", "message", "phone"];
-  const [formValues, setFormValues] =useState(
-    {
-      [formAreaNames[0]]: "",
-      [formAreaNames[1]]: "",
-      [formAreaNames[2]]: "",
-      [formAreaNames[3]]: "",
-      [formAreaNames[4]]: "",
-    })
+  const defaultFormValues = {
+    [formAreaNames[0]]: "",
+    [formAreaNames[1]]: "",
+    [formAreaNames[2]]: "",
+    [formAreaNames[3]]: "",
+    [formAreaNames[4]]: "",
+  };
+  const [formValues, setFormValues] =useState(defaultFormValues);
     const [nameError, setNameError] = useState([""]);
     const [surnameError, setSurnameError] = useState([""]);
     const [emailError, setEmailError] = useState([""]);
@@ -38,6 +38,17 @@ function ContactForm(props) {
     const [statusOfInputedData, setStatusOfInputedData] = useState([true, true, true, true, true]);
     const [nameStatus, surnameStatus, emailStatus, messageStatus, phoneStatus] = statusOfInputedData;
 
+  
+  const handleClickingButtonToSend = () => {
+    if(nameError==="" & 
+    surnameError==="" & 
+    emailError==="" & 
+    messageError==="" & 
+    phoneError === ""
+    ){
+      handleSendingButtonClick();
+    };
+  }
 
   const handleInputChange = (event, type) => {
     // event.preventDefault();
@@ -162,8 +173,20 @@ function ContactForm(props) {
     }
   },[phoneStatus])
 
+  useEffect(()=>{
+    if(wasDataFromFormSend){
+      setFormValues(defaultFormValues);
+      setNameError("");
+      setSurnameError("");
+      setEmailError("");
+      setMessageError("");
+      setPhoneError("");
+    }
+  }, [wasDataFromFormSend])
+
   return (
     <div 
+    id="form"
     style={style}
     ref={wrapper}
     >
@@ -175,38 +198,39 @@ function ContactForm(props) {
             onChange={(event) => {
             handleInputChange(event, formAreaNames[0]);}}
             />
+            <div className="error"><bold>{nameError}</bold></div>
             <p>Your surname:</p>
             <input label="surname"
             value={formValues[formAreaNames[1]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[1])}}
             />
+            <div className="error"><bold>{surnameError}</bold></div>
             <p>Your e-mail adress:</p>
             <input label="e-mail"
             type="email"
             value={formValues[formAreaNames[2]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[2])}}
             />
+            <div className="error"><bold>{emailError}</bold></div>
             <p>Your phone number:</p>
             <input label="phone"
             type="tel"
             value={formValues[formAreaNames[4]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[4])}}
             />
+            <div className="error"><bold>{phoneError}</bold></div>
             <p>Tell us e.g. when and where you want us to perform concert:</p>
             <textarea label="message"
             value={formValues[formAreaNames[3]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[3])}}
             />
+            <div className="error"><bold>{messageError}</bold></div>
         </div>
         <div><button 
         id="btn-sendform" 
-        onClick={handleSendingButtonClick}
+        onClick={handleClickingButtonToSend}
+        disabled={visibilityOfVerification}
         >Send your proposition.</button></div>
-        <div className="error">{nameError}</div>
-        <div className="error">{surnameError}</div>
-        <div className="error">{emailError}</div>
-        <div className="error">{messageError}</div>
-        <div className="error">{phoneError}</div>
     </div>
 
   );

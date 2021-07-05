@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { getQuestion } from './../../functionsAndVars';
 
 function Verification(props) {
-    const { setvisibilityOfVerification, setDataFromFormWasSend } = props;
+    const { setvisibilityOfVerification, setDataFromFormWasSend, setVisibilityOfForm } = props;
 
-    const [questionData, setQuestionData] =useState(getQuestion([]));//props.firstQuestion);
+    const [questionData, setQuestionData] =useState(getQuestion([]));
     const [numberOfGoodQuestions, setNumberOfGoodQuestions] = useState(0);
     const [text, settext] = useState('');
     const [visibilityOfRestartButton, setVisibilityOfRestartButton] = useState(false);
 
     const {question: {question, answers, goodAnswer}, askedQuestions} = questionData;
-    const errorText = 'you had 5 chanses and you did\'t get 3 good answers.';
-    const sendText = 'your\'e message was send. Verification tab will close after about 3 seconds.';
+    const errorText = 'You had 5 chances and you did\'t get 3 good answers.';
+    const sendText = 'Your\'e message was send. Verification tab will close after about 3 seconds.';
 
     const handleAnswering = (event) => {
       
@@ -63,11 +63,12 @@ function Verification(props) {
       if(text === sendText) {
         setTimeout( () =>{
         setvisibilityOfVerification(false);
+        setVisibilityOfForm(true);
         setDataFromFormWasSend(true);// added to form tab be able to close automaticly
         },
         3000);
       };
-    }, [text, setvisibilityOfVerification, setDataFromFormWasSend])
+    }, [text, setvisibilityOfVerification, setVisibilityOfForm, setDataFromFormWasSend])
 
     const handleExitButton = () => {
       setVisibilityOfRestartButton(false);
@@ -80,14 +81,14 @@ function Verification(props) {
     >
         {visibilityOfRestartButton &&
           <button
-          className="exit"
+          id="exit"
           onClick={handleExitButton}
           >x</button>
           }
         <h4>We must check if you're a person ;)</h4>
         <h6>Please answer 3 questions.</h6>
         <div className="question">
-            text of: {question}
+            {question}
         </div>
         {answers.map((item, index) =><div key={index}>
         <button className="questionsAnswer"
@@ -95,7 +96,7 @@ function Verification(props) {
         value={item}
         >{item}</button>
         </div>)}
-        <div>{text}</div>
+        <div className="comunicates"><bold>{text}</bold></div>
         <div>
           {visibilityOfRestartButton &&
             <button
