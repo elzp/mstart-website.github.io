@@ -1,11 +1,14 @@
-const gbColor ="#201212";
+const gbColor ="#e9f4f3";
+const borderColor = "#262d35";
 
 export const defaultformStyle = {
+  //"background-image": './form-bg-mikhail-nilov.png',
   background: gbColor,
   height: "100vh",
   width: "50vw",
-  border: "1px solid red",
-  margin: "0 0 0 0",
+  "border-left": `1px solid ${borderColor}`,
+  margin: 0,
+  padding: 0,
   top: "0px",
   left: "0px",
   display: "none",
@@ -14,10 +17,10 @@ export const defaultformStyle = {
 
 export const parametersOfSlideForm = (animationDuration, animationName, displayVar)=>{
     return {
-      "animation-duration": `${animationDuration}s`,
-      "animation-name": animationName,
-      "-webkit-animation-fill-mode": "forwards",
-      "animation-fill-mode": "forwards",
+      animationDuration: `${animationDuration}s`,
+      animationName: animationName,
+      WebkitAnimationFillMode: "forwards",
+      animationFillMode: "forwards",
       display: displayVar
 }};
 
@@ -25,33 +28,33 @@ export const parametersOfSlideForm = (animationDuration, animationName, displayV
 // set of questions
 const questions = {
   1: { 
-    question: 'question 1',
-    answers: ["bad answer1", "good answer", "bad answer2"],
+    question: 'Which instrument doesn\'t have strings?',
+    answers: ["guitar", "trumpet", "harp"],
     goodAnswer: 2,
   },
   2: { 
-    question: 'question 2',
-    answers: ["good answer", "bad answer2", "bad answer1"],
+    question: 'To which instrument you have to blow to play it?',
+    answers: ["trumpet", "piano", "drum"],
     goodAnswer: 1,
   },
   3: { 
-    question: 'question 3',
-    answers: ["bad answer1", "bad answer2", "good answer"],
+    question: 'Which instrument doesn\'t have keys?',
+    answers: ["accordion", "piano", "guitar"],
     goodAnswer: 3,
   },
   4: { 
-    question: 'question 4',
-    answers: ["bad answer1", "good answer", "bad answer2"],
+    question: 'Which of below isn\'t a name of singing voice?',
+    answers: ["alto", "Freddie Mercury", "soprano"],
     goodAnswer: 2,
   },
   5: { 
-    question: 'question 5',
-    answers: ["bad answer1", "bad answer2", "good answer"],
+    question: 'Which band usually perform pop songs?',
+    answers: ["Rammstein", "Mettalica", "Panic in the Disco"],
     goodAnswer: 3,
   },
   6: { 
-    question: 'question 6',
-    answers: ["bad answer1", "bad answer2", "good answer"],
+    question: 'Which artist/band originated in \'90s?',
+    answers: ["Birdy", "Billie Eilish", "Nirvana"],
     goodAnswer: 3,
   }
 };
