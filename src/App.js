@@ -42,24 +42,12 @@ function App() {
   return (
     <div className="App">
       <header>
-        <div>
-          
-          <div> 
+          <div className="header-wrapper"> 
           <h1>BIRDY</h1>
           <img src={img} alt="header-img"></img>
           </div>
-        </div>
       </header>
-      <main> 
-        <div>
-        <iframe width="450" height="auto" src="https://www.youtube.com/embed/OmLNs6zQIHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div>
-          <iframe width="450" height="auto" src="https://www.youtube.com/embed/WJTXDCh2YiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/6K25KhCq7p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+      <main>      
         <div>
           <div>
           <About />
@@ -69,7 +57,26 @@ function App() {
             onClick={handleContactButtonClick}
             >Contact with us!</button>
          </div>
-         { visibilityOfForm &&
+         <h4>Listen some of her songs.</h4>
+         <div>
+          <div className="videos-wrapper"> 
+          <div>
+          <iframe src="https://www.youtube.com/embed/OmLNs6zQIHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div className="videos-wrapper">
+          <div>
+            <iframe src="https://www.youtube.com/embed/WJTXDCh2YiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div className="videos-wrapper">
+          <div>
+          <iframe //width="560" height="315"
+           src="https://www.youtube.com/embed/6K25KhCq7p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        </div>  
+        { visibilityOfForm &&
          <ContactForm 
          style={formStyle} 
          setVisibilityOfForm={setVisibilityOfForm}

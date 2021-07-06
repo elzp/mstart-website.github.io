@@ -7,11 +7,12 @@
   display: grid;
   justify-content: center;
   overflow-x: hidden;
+  width: 100vw;
 }
 
-h6, h4 {
-  padding: 0;
-  margin: 1em 5% 0.5em 5%;
+h6, h4, h2 {
+  padding: 0 1em;
+  margin: 1em;
 }
 
 button {
@@ -49,37 +50,48 @@ textarea {
 
 .error {
   color: red;
+  margin: left 1em right 1em;
 }
 
-header div {
+header {
+  margin: 0;
+  padding-top: 0;
+}
+header .header-wrapper {
   justify-self: center;
   font-family: Impact;
+  position: relative;
+  margin: 0;
+  padding-top: 0;
 }
-header div h1 {
+header .header-wrapper h1 {
   font-size: 3em;
+  position: absolute;
   justify-content: center;
   margin: 0;
+  top: 0.5em;
+  left: 1em;
+  right: 80%;
   color: #f78845;
   animation-duration: 4s;
   animation-name: slide-from-right;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
-header div div {
+header .header-wrapper div {
   padding: 0;
 }
-header div img {
+header .header-wrapper img {
   width: 100%;
   height: auto;
-  position: relative;
-  margin: 0 1em 2em 1em;
+  margin: 0 0 2em 0;
   animation-duration: 3s;
   animation-name: resize;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.about div {
+.about > div {
   margin: 1.5em 10vw;
   padding: 1em;
   background-color: #e9f4f3;
@@ -87,42 +99,187 @@ header div img {
   color: #262d35;
 }
 
-main div iframe {
-  width: auto;
-  max-width: 90%;
-  height: max-content;
-  margin: 0 1em 2em 1em;
-}
+@media (min-width: 480px) {
+  .videos-wrapper {
+    width: 50%;
+    position: relative;
+    padding-top: calc(50%*0.5625);
+    margin-bottom: 3em;
+    top: 0;
+    left: 25%;
+    margin: 0;
+  }
+  .videos-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+  }
 
-#discs {
-  border: none;
+  #discs {
+    border: none;
+    width: 90vw;
+  }
+  #discs .disc-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 45vw 45vw;
+  }
+  #discs .disc-wrapper .disc-container {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1em;
+    border: none;
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+  }
+  #discs .disc-wrapper .disc-container .disc-img {
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: grid;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: auto;
+    width: 35vw;
+    align-self: center;
+  }
+  #discs .disc-wrapper .disc-container .disc-text {
+    align-self: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: fit-content;
+    display: grid;
+    grid-auto-flow: column;
+  }
+  #discs .disc-wrapper .disc-container .disc-text .disc-title {
+    color: #f78845;
+    font-family: Impact;
+    text-align: left;
+    max-width: fit-content;
+  }
+  #discs .disc-wrapper .disc-container .disc-text .disc-year {
+    text-align: right;
+    align-self: right;
+    font-size: 0.9em;
+    margin-left: 3em;
+    color: #f78845;
+  }
 }
-#discs div {
-  border: none;
-  display: grid;
-  grid-auto-flow: column;
-}
-#discs div .disc-img {
-  padding: 0;
-  border: none;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  max-width: fit-content;
-}
-#discs div .disc-img img {
-  height: 300px;
-  width: auto;
-}
-#discs div .disc-text {
-  text-align: left;
-  margin: 0;
-}
+@media (max-width: 480px) {
+  main div iframe {
+    width: auto;
+    max-width: 90%;
+    height: max-content;
+    margin: 0 1em 2em 1em;
+  }
 
+  #discs {
+    border: none;
+    width: 90vw;
+  }
+  #discs .disc-container {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1em;
+    border: none;
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+  }
+  #discs .disc-container .disc-img {
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: grid;
+  }
+  #discs .disc-container .disc-img img {
+    height: auto;
+    width: 60vw;
+    align-self: center;
+  }
+  #discs .disc-container .disc-text {
+    align-self: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: fit-content;
+    display: grid;
+    grid-auto-flow: column;
+  }
+  #discs .disc-container .disc-text .disc-title {
+    color: #f78845;
+    font-family: Impact;
+    text-align: left;
+    max-width: fit-content;
+  }
+  #discs .disc-container .disc-text .disc-year {
+    text-align: right;
+    align-self: right;
+    font-size: 0.9em;
+    margin-left: 3em;
+    color: #f78845;
+  }
+}
+@media screen and (orientation: landscape) {
+  main div iframe {
+    width: auto;
+    max-width: 90%;
+    height: max-content;
+    margin: 0 1em 2em 1em;
+  }
 
-
+  #discs {
+    border: none;
+    width: 90vw;
+  }
+  #discs .disc-container {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1em;
+    border: none;
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+  }
+  #discs .disc-container .disc-img {
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: grid;
+  }
+  #discs .disc-container .disc-img img {
+    height: auto;
+    width: 60vw;
+    align-self: center;
+  }
+  #discs .disc-container .disc-text {
+    align-self: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: fit-content;
+    display: grid;
+    grid-auto-flow: column;
+  }
+  #discs .disc-container .disc-text .disc-title {
+    color: #f78845;
+    font-family: Impact;
+    text-align: left;
+    max-width: fit-content;
+  }
+  #discs .disc-container .disc-text .disc-year {
+    text-align: right;
+    align-self: right;
+    font-size: 0.9em;
+    margin-left: 3em;
+    color: #f78845;
+  }
+}
 .verification {
   width: 60vw;
   min-height: 40vh;
@@ -154,7 +311,7 @@ main div iframe {
 }
 
 .question {
-  margin-bottom: 1em;
+  margin: 1em;
 }
 
 .questionsAnswer {
@@ -169,8 +326,7 @@ main div iframe {
 }
 
 .comunicates {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0.5em 1em;
   color: red;
   font-size: 15px;
   text-align: center;
@@ -198,10 +354,10 @@ main div iframe {
 }
 @keyframes slide-from-right {
   0% {
-    transform: translate(0%, 0);
+    transform: translateY(0);
   }
   100% {
-    transform: translate(-30%, 0);
+    transform: translateY(100%);
   }
 }
 @keyframes slideout {
@@ -210,23 +366,6 @@ main div iframe {
   }
   100% {
     transform: translate();
-  }
-}
-@media (width-max: 480px) {
-  header div {
-    width: 100%;
-  }
-  header div img {
-    width: 100%;
-    height: auto;
-    position: relative;
-    margin: 2em 0;
-  }
-
-  #form {
-    width: 50vh;
-    height: 100vw;
-    overflow-y: scroll;
   }
 }
 @media (orientation: landscape) {
@@ -238,5 +377,11 @@ main div iframe {
 
   textarea {
     width: 90%;
+  }
+
+  .verification {
+    top: 5vh;
+    left: 20vw;
+    position: fixed;
   }
 }

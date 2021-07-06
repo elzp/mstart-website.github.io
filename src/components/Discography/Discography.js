@@ -7,16 +7,18 @@ import cd1 from './../../1birdy.jpg';
 
 function Discography(props) {
   const cdsArray = [
-    [cd4, "Young heart from 2021."],
-    [cd3, "Beautiful Lies from 2016."], 
-    [cd2, "Fire Within from 2012." ],
-    [cd1, "Birdy from 2011"]];
+    [cd4, "Young heart", "2021"],
+    [cd3, "Beautiful Lies", "2016"], 
+    [cd2, "Fire Within", "2012" ],
+    [cd1, "Birdy", "2011"]];
 
   return (
     <div id="discs">
       <h4>Discography</h4>
+      <div className="disc-wrapper">
          {
-           cdsArray.map((it, index)=>
+           cdsArray.map((it, index)=>{
+            return (
             <div className="disc-container">
               <div key={index}
               className="disc-img">
@@ -26,10 +28,15 @@ function Discography(props) {
               </div>
               <div 
               className="disc-text"
-              key={index}>{it[1]}</div>
+              key={index}>
+                <p className="disc-title">{it[1]}</p>
+                <p className="disc-year">{it[2]}</p>
+                </div>
             </div>
+            );}
             )
          } 
+      </div>
     </div>
 
   );
