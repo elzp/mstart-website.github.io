@@ -41,34 +41,40 @@ function ContactForm(props) {
 
   
   const handleClickingButtonToSend = () => {
-    if(//nameError==="" & 
-    // surnameError==="" & 
+    if(
+    nameError==="" & 
+    surnameError==="" & 
     emailError==="" & 
     messageError==="" & 
     phoneError === "" &
+    formValues[formAreaNames[0]] !== "" &
+    formValues[formAreaNames[1]] !== "" &
     formValues[formAreaNames[2]] !== "" &
     formValues[formAreaNames[3]] !== "" &
     formValues[formAreaNames[4]] !== ""
     ){
        
       handleSendingButtonClick();
-      // setSendingError("");
+      setSendingError("");
     }else {setSendingError("Add proper e-mail adress, phone number and message to send us informations.");}
   }
 
   useEffect(()=>{
-    if(
-      emailError==="" & 
+    if(nameError==="" & 
+    surnameError==="" & 
+    emailError==="" & 
     messageError==="" & 
-    phoneError === "" &
-      // sendingError=="" 
-      formValues[formAreaNames[2]] !== "" &
-      formValues[formAreaNames[3]] !== "" &
-      formValues[formAreaNames[4]] !== ""
+    phoneError === "" & 
+    sendingError!== "" &
+    formValues[formAreaNames[0]] !== "" &
+    formValues[formAreaNames[1]] !== "" &
+    formValues[formAreaNames[2]] !== "" &
+    formValues[formAreaNames[3]] !== "" &
+    formValues[formAreaNames[4]] !== ""
       ){
-       setSendingError("");
+        setSendingError(""); //clean error of sending
     }
-  }, [emailError, messageError, phoneError, sendingError]);
+  }, [nameError, surnameError, emailError, messageError, phoneError, sendingError]);
 
   const handleInputChange = (event, type) => {
     // event.preventDefault();
