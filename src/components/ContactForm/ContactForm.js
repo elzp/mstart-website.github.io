@@ -29,11 +29,12 @@ function ContactForm(props) {
     [formAreaNames[4]]: "",
   };
   const [formValues, setFormValues] =useState(defaultFormValues);
-    const [nameError, setNameError] = useState([""]);
-    const [surnameError, setSurnameError] = useState([""]);
-    const [emailError, setEmailError] = useState([""]);
-    const [messageError, setMessageError] = useState([""]);
-    const [phoneError, setPhoneError] = useState([""]);
+    const [nameError, setNameError] = useState("");
+    const [surnameError, setSurnameError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [messageError, setMessageError] = useState("");
+    const [phoneError, setPhoneError] = useState("");
+    const [sendingError, setSendingError] = useState("");
 
     const [statusOfInputedData, setStatusOfInputedData] = useState([true, true, true, true, true]);
     const [nameStatus, surnameStatus, emailStatus, messageStatus, phoneStatus] = statusOfInputedData;
@@ -42,16 +43,32 @@ function ContactForm(props) {
   const handleClickingButtonToSend = () => {
     if(//nameError==="" & 
     // surnameError==="" & 
-    // emailError==="" & 
-    // messageError==="" & 
-    // phoneError === "" &
+    emailError==="" & 
+    messageError==="" & 
+    phoneError === "" &
     formValues[formAreaNames[2]] !== "" &
     formValues[formAreaNames[3]] !== "" &
     formValues[formAreaNames[4]] !== ""
     ){
+       
       handleSendingButtonClick();
-    };
+      // setSendingError("");
+    }else {setSendingError("Add proper e-mail adress, phone number and message to send us informations.");}
   }
+
+  useEffect(()=>{
+    if(
+      emailError==="" & 
+    messageError==="" & 
+    phoneError === "" &
+      // sendingError=="" 
+      formValues[formAreaNames[2]] !== "" &
+      formValues[formAreaNames[3]] !== "" &
+      formValues[formAreaNames[4]] !== ""
+      ){
+       setSendingError("");
+    }
+  }, [emailError, messageError, phoneError, sendingError]);
 
   const handleInputChange = (event, type) => {
     // event.preventDefault();
@@ -228,6 +245,7 @@ function ContactForm(props) {
             onChange={(event) => {handleInputChange(event, formAreaNames[3])}}
             />
             <div className="error"><bold>{messageError}</bold></div>
+            <div className="error">{sendingError}</div>
         </div>
         <div><button 
         id="btn-sendform" 
