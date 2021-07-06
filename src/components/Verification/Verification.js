@@ -63,12 +63,12 @@ function Verification(props) {
       if(text === sendText) {
         setTimeout( () =>{
         setvisibilityOfVerification(false);
-        setVisibilityOfForm(true);
+        setVisibilityOfForm(false);
         setDataFromFormWasSend(true);// added to form tab be able to close automaticly
         },
         3000);
       };
-    }, [text, setvisibilityOfVerification, setVisibilityOfForm, setDataFromFormWasSend])
+    }, [text])
 
     const handleExitButton = () => {
       setVisibilityOfRestartButton(false);
