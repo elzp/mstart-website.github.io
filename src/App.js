@@ -43,21 +43,15 @@ function App() {
     <div className="App">
       <header>
           <div className="header-wrapper"> 
-          <h1>BIRDY</h1>
           <img src={img} alt="header-img"></img>
+          <h1>BIRDY</h1>
           </div>
       </header>
       <main>      
         <div>
           <div>
           <About />
-          </div>
-            <button id="btn-contact" 
-            disabled={visibilityOfForm}
-            onClick={handleContactButtonClick}
-            >Contact with us!</button>
-         </div>
-         <h4>Listen some of her songs.</h4>
+          <h4>Listen some of her songs.</h4>
          <div>
           <div className="videos-wrapper"> 
           <div>
@@ -76,6 +70,14 @@ function App() {
           </div>
         </div>
         </div>  
+          </div>
+
+            <button id="btn-contact" 
+            disabled={visibilityOfForm}
+            onClick={handleContactButtonClick}
+            >Contact with us!</button>
+         </div>
+         
         { visibilityOfForm &&
          <ContactForm 
          style={formStyle} 

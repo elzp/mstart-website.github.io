@@ -55,18 +55,23 @@ textarea {
 
 header {
   margin: 0;
-  padding-top: 0;
+  padding: 0;
 }
 header .header-wrapper {
   justify-self: center;
   font-family: Impact;
   position: relative;
   margin: 0;
-  padding-top: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 }
 header .header-wrapper h1 {
   font-size: 3em;
   position: absolute;
+  z-index: 2;
   justify-content: center;
   margin: 0;
   top: 0.5em;
@@ -74,7 +79,7 @@ header .header-wrapper h1 {
   right: 80%;
   color: #f78845;
   animation-duration: 4s;
-  animation-name: slide-from-right;
+  animation-name: to-bottom;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -82,11 +87,12 @@ header .header-wrapper div {
   padding: 0;
 }
 header .header-wrapper img {
-  width: 100%;
-  height: auto;
-  margin: 0 0 2em 0;
+  width: 110%;
+  position: relative;
+  margin: 0 0 0 0;
+  padding: 0;
   animation-duration: 3s;
-  animation-name: resize;
+  animation-name: to-left;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -171,6 +177,12 @@ header .header-wrapper img {
   }
 }
 @media (max-width: 480px) {
+  header .header-wrapper h1 {
+    top: 5%;
+    left: 8%;
+    animation: none;
+  }
+
   main div iframe {
     width: auto;
     max-width: 90%;
@@ -279,6 +291,22 @@ header .header-wrapper img {
     margin-left: 3em;
     color: #f78845;
   }
+
+  #form {
+    width: 50vh;
+    height: 100vw;
+    overflow-y: scroll;
+  }
+
+  textarea {
+    width: 90%;
+  }
+
+  .verification {
+    top: 5vh;
+    left: 20vw;
+    position: fixed;
+  }
 }
 .verification {
   width: 60vw;
@@ -341,23 +369,20 @@ header .header-wrapper img {
     width: 50vw;
   }
 }
-@keyframes resize {
+@keyframes to-left {
   0% {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    transform: translateX(-20%);
   }
   100% {
-    width: 90%;
-    margin: 0 1em 2em 1em;
+    transform: translateX(-8%);
   }
 }
-@keyframes slide-from-right {
+@keyframes to-bottom {
   0% {
-    transform: translateY(0);
+    transform: translateY(-30%);
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(25%);
   }
 }
 @keyframes slideout {
@@ -366,22 +391,5 @@ header .header-wrapper img {
   }
   100% {
     transform: translate();
-  }
-}
-@media (orientation: landscape) {
-  #form {
-    width: 50vh;
-    height: 100vw;
-    overflow-y: scroll;
-  }
-
-  textarea {
-    width: 90%;
-  }
-
-  .verification {
-    top: 5vh;
-    left: 20vw;
-    position: fixed;
   }
 }
