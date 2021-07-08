@@ -56,7 +56,7 @@ function ContactForm(props) {
        
       handleSendingButtonClick();
       setSendingError("");
-    }else {setSendingError("Add proper e-mail adress, phone number and message to send us informations.");}
+    }else {setSendingError("Add all proper informations to send it to us.");}
   }
 
   useEffect(()=>{
@@ -146,7 +146,8 @@ function ContactForm(props) {
         break;
         case formAreaNames[4]:
           setFormValues(current =>{return {...current, [formAreaNames[4]]: input}});
-          if(input !=="" & /(^[^0])(\d)/.test(input) & allInputedKeys.length === 8){
+          const lengthOfPhone = (allInputedKeys.length >= 8 & allInputedKeys.length<=11);
+          if(input !=="" & /(^[^0])(\d)/.test(input) & lengthOfPhone){
             newStatuses[4]=true;
             setStatusOfInputedData(currentStatuses=> newStatuses);
           } else {
@@ -193,7 +194,7 @@ function ContactForm(props) {
 
   useEffect(()=>{
     if(!phoneStatus) {
-      setPhoneError("Phone has to contain only numbers and has length of 8.");
+      setPhoneError("Phone has to contain only numbers and has length between 8 and 11.");
     } else {
       setPhoneError("");
     }
