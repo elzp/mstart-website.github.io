@@ -105,6 +105,12 @@ header .header-wrapper img {
   color: #262d35;
 }
 
+#form {
+  width: 50vh;
+  height: 100vw;
+  overflow-y: scroll;
+}
+
 @media (min-width: 480px) {
   .videos-wrapper {
     width: 50%;
@@ -290,12 +296,6 @@ header .header-wrapper img {
     font-size: 0.9em;
     margin-left: 3em;
     color: #f78845;
-  }
-
-  #form {
-    width: 50vh;
-    height: 100vw;
-    overflow-y: scroll;
   }
 
   textarea {
