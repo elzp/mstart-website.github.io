@@ -87,7 +87,7 @@ header .header-wrapper div {
   padding: 0;
 }
 header .header-wrapper img {
-  width: 110%;
+  width: 100vw;
   position: relative;
   margin: 0 0 0 0;
   padding: 0;
@@ -371,10 +371,10 @@ header .header-wrapper img {
 }
 @keyframes to-left {
   0% {
-    transform: translateX(-20%);
+    transform: translateX(-10%);
   }
   100% {
-    transform: translateX(-8%);
+    transform: translateX(0%);
   }
 }
 @keyframes to-bottom {
