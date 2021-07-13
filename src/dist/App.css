@@ -59,7 +59,7 @@ header {
 }
 header .header-wrapper {
   justify-self: center;
-  font-family: Impact;
+  font-family: "Impact", "Anton", sans-serif;
   position: relative;
   margin: 0;
   padding: 0;
@@ -88,11 +88,14 @@ header .header-wrapper div {
 }
 header .header-wrapper img {
   width: 100vw;
+  height: 300px;
   position: relative;
   margin: 0 0 0 0;
   padding: 0;
   animation-duration: 3s;
   animation-name: to-left;
+  object-fit: cover;
+  object-position: 0% 0%;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -170,7 +173,7 @@ header .header-wrapper img {
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #f78845;
-    font-family: Impact;
+    font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
   }
@@ -231,7 +234,7 @@ header .header-wrapper img {
   }
   #discs .disc-container .disc-text .disc-title {
     color: #f78845;
-    font-family: Impact;
+    font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
   }
@@ -286,7 +289,7 @@ header .header-wrapper img {
   }
   #discs .disc-container .disc-text .disc-title {
     color: #f78845;
-    font-family: Impact;
+    font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
   }
