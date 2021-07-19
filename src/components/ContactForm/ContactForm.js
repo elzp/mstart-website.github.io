@@ -214,7 +214,8 @@ function ContactForm(props) {
   return (
     <div 
     id="form"
-    style={style}
+    // style={style}
+    className="form"
     ref={wrapper}
     >
         <h4>If you want us to perform in your event, please fill the form to contact with our manager!</h4>

@@ -88,9 +88,9 @@ header .header-wrapper div {
 }
 header .header-wrapper img {
   width: 100vw;
-  height: 300px;
+  height: auto;
   position: relative;
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 0;
   animation-duration: 3s;
   animation-name: to-left;
@@ -112,6 +112,19 @@ header .header-wrapper img {
   width: 50vh;
   height: 100vw;
   overflow-y: scroll;
+  background: #e9f4f3;
+  border-left: 1px solid #262d35;
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  left: 0px;
+  display: none;
+  position: fixed;
+  animation-duration: 3s;
+  animation-name: animationName;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  display: inline;
 }
 
 @media (min-width: 480px) {
