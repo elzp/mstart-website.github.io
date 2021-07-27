@@ -16,7 +16,9 @@ function Discography(props) {
             <div className="disc-container">
               <div key={index}
               className="disc-img">
+                <div>
                 {it[3].split(",").map(it1=>(<p>{it1}</p>))}
+                </div>
                 <img src={it[0]} 
                 alt= {it[1]}
                 />

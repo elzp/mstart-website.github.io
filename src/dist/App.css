@@ -82,6 +82,10 @@ header .header-wrapper h1 {
   animation-name: to-bottom;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  transition: color 1s ease-in;
+}
+header .header-wrapper h1:hover {
+  color: #e9f4f3;
 }
 header .header-wrapper div {
   padding: 0;
@@ -99,6 +103,10 @@ header .header-wrapper img {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+header .header-wrapper img:hover {
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
 
 .about > div {
   margin: 1.5em 10vw;
@@ -106,6 +114,11 @@ header .header-wrapper img {
   background-color: #e9f4f3;
   border-top: 2px solid #262d35;
   color: #262d35;
+}
+
+.about > div:nth-child(-n+4):hover {
+  background-color: #f78845;
+  color: #e9f4f3;
 }
 
 #form {
@@ -127,7 +140,7 @@ header .header-wrapper img {
   display: inline;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 380px) {
   .videos-wrapper {
     width: 50%;
     position: relative;
@@ -146,22 +159,22 @@ header .header-wrapper img {
   }
 
   #discs {
-    border: none;
     width: 90vw;
   }
   #discs .disc-wrapper {
+    padding: 0 auto;
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 45vw 45vw;
   }
   #discs .disc-wrapper .disc-container {
+    width: max-content;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
-    border: none;
     display: grid;
     justify-content: center;
+    justify-self: center;
     grid-auto-flow: row;
   }
   #discs .disc-wrapper .disc-container .disc-img {
@@ -170,10 +183,34 @@ header .header-wrapper img {
     border: none;
     display: grid;
   }
-  #discs .disc-wrapper .disc-container .disc-img img {
-    height: auto;
+  #discs .disc-wrapper .disc-container .disc-img > div {
+    position: absolute;
+    max-height: 35vw;
     width: 35vw;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  #discs .disc-wrapper .disc-container .disc-img > div p {
+    width: fit-content;
+    text-align: center;
+    width: 35vw;
+    margin: 0 auto;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: 35vw;
+    width: 35vw;
+    transition: transform 1.5s ease-in-out;
     align-self: center;
+    z-index: 2;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    transform: translateX(0%);
+    transition: transform 2s;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img:hover {
+    transform: translateX(100%);
   }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
@@ -198,7 +235,7 @@ header .header-wrapper img {
     color: #f78845;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 380px) {
   header .header-wrapper h1 {
     top: 5%;
     left: 8%;
@@ -213,48 +250,82 @@ header .header-wrapper img {
   }
 
   #discs {
-    border: none;
     width: 90vw;
   }
-  #discs .disc-container {
+  #discs .disc-wrapper {
+    padding: 0 auto;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+  #discs .disc-wrapper .disc-container {
+    width: max-content;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
-    border: none;
     display: grid;
     justify-content: center;
+    justify-self: center;
     grid-auto-flow: row;
   }
-  #discs .disc-container .disc-img {
+  #discs .disc-wrapper .disc-container .disc-img {
     padding: 0;
     margin: 0;
     border: none;
     display: grid;
+    justify-self: center;
+    align-content: center;
+    overflow-y: scroll;
   }
-  #discs .disc-container .disc-img img {
-    height: auto;
+  #discs .disc-wrapper .disc-container .disc-img > div {
+    position: absolute;
+    max-height: 60vw;
     width: 60vw;
-    align-self: center;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
-  #discs .disc-container .disc-text {
+  #discs .disc-wrapper .disc-container .disc-img > div p {
+    width: fit-content;
+    text-align: center;
+    width: 60vw;
+    margin: 0 auto;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: 60vw;
+    width: 60vw;
+    transition: transform 1.5s ease-in-out;
     align-self: center;
+    z-index: 2;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    transform: translateX(0%);
+    transition: transform 2s;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img:hover {
+    transform: translateX(100%);
+  }
+  #discs .disc-wrapper .disc-container .disc-text {
+    align-self: center;
+    align-content: center;
     text-align: center;
     margin: 0;
     padding: 0;
     max-width: fit-content;
-    display: grid;
-    grid-auto-flow: column;
-  }
-  #discs .disc-container .disc-text .disc-title {
-    color: #f78845;
+    display: flex;
+    flex-direction: row;
     font-family: "Impact", "Anton", sans-serif;
-    text-align: left;
-    max-width: fit-content;
   }
-  #discs .disc-container .disc-text .disc-year {
+  #discs .disc-wrapper .disc-container .disc-text .disc-title {
+    color: #f78845;
     text-align: right;
-    align-self: right;
-    font-size: 0.9em;
+    max-width: max-content;
+  }
+  #discs .disc-wrapper .disc-container .disc-text .disc-year {
+    text-align: left;
+    align-self: left;
     margin-left: 3em;
     color: #f78845;
   }
@@ -268,30 +339,60 @@ header .header-wrapper img {
   }
 
   #discs {
-    border: none;
     width: 90vw;
   }
-  #discs .disc-container {
+  #discs .disc-wrapper {
+    padding: 0 auto;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 50% 50%;
+  }
+  #discs .disc-wrapper .disc-container {
+    width: max-content;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
-    border: none;
     display: grid;
     justify-content: center;
+    justify-self: center;
     grid-auto-flow: row;
   }
-  #discs .disc-container .disc-img {
+  #discs .disc-wrapper .disc-container .disc-img {
     padding: 0;
     margin: 0;
     border: none;
     display: grid;
   }
-  #discs .disc-container .disc-img img {
-    height: auto;
-    width: 60vw;
-    align-self: center;
+  #discs .disc-wrapper .disc-container .disc-img > div {
+    position: absolute;
+    max-height: 35vw;
+    width: 35vw;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
-  #discs .disc-container .disc-text {
+  #discs .disc-wrapper .disc-container .disc-img > div p {
+    width: fit-content;
+    text-align: center;
+    width: 35vw;
+    margin: 0 auto;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: 35vw;
+    width: 35vw;
+    transition: transform 1.5s ease-in-out;
+    align-self: center;
+    z-index: 2;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    transform: translateX(0%);
+    transition: transform 2s;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img:hover {
+    transform: translateX(100%);
+  }
+  #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
     text-align: center;
     margin: 0;
@@ -300,13 +401,13 @@ header .header-wrapper img {
     display: grid;
     grid-auto-flow: column;
   }
-  #discs .disc-container .disc-text .disc-title {
+  #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #f78845;
     font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
   }
-  #discs .disc-container .disc-text .disc-year {
+  #discs .disc-wrapper .disc-container .disc-text .disc-year {
     text-align: right;
     align-self: right;
     font-size: 0.9em;
@@ -343,7 +444,6 @@ header .header-wrapper img {
   background: red;
   color: white;
   border-radius: 0;
-  border: none;
   height: 2em;
   width: 2em;
   margin: 0;
@@ -360,7 +460,6 @@ header .header-wrapper img {
 
 .questionsAnswer {
   border-radius: 0;
-  border: none;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.3em;
