@@ -1,16 +1,10 @@
 import './../../dist/App.css';
 import React from 'react';
-import cd4 from './../../4young-heart.jpg';
-import cd3 from './../../3beautiful-lies.jpg';
-import cd2 from './../../2fire-within.jpg';
-import cd1 from './../../1birdy.jpg';
+import {infoAboutCds} from '../../functionsAndVars';
+
 
 function Discography(props) {
-  const cdsArray = [
-    [cd4, "Young heart", "2021"],
-    [cd3, "Beautiful Lies", "2016"], 
-    [cd2, "Fire Within", "2012" ],
-    [cd1, "Birdy", "2011"]];
+  const cdsArray = infoAboutCds;
 
   return (
     <div id="discs">
@@ -22,6 +16,7 @@ function Discography(props) {
             <div className="disc-container">
               <div key={index}
               className="disc-img">
+                {it[3].split(",").map(it1=>(<p>{it1}</p>))}
                 <img src={it[0]} 
                 alt= {it[1]}
                 />

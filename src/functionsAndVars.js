@@ -1,3 +1,8 @@
+import cd4 from './4young-heart.jpg';
+import cd3 from './3beautiful-lies.jpg';
+import cd2 from './2fire-within.jpg';
+import cd1 from './/1birdy.jpg';
+
 const gbColor ="#e9f4f3";
 const borderColor = "#262d35";
 
@@ -107,3 +112,65 @@ export const getQuestion = (
 
   return {question, askedQuestions: answeredQuestions};
 }
+
+
+
+//for Discography component
+export const infoAboutCds = [
+  [cd4, "Young heart", "2021", `
+  1. The Witching Hour Intro,
+2. Voyager,
+3. Loneliness,
+4. The Otherside,
+5. Surrender,
+6. Nobody Knows Me Like You Do,
+7. River Song,
+8. Second Hand News,
+9. Deepest Lonely,
+10. Lighthouse,
+11. Chopin Waltz In A Minor Interlude,
+12. Evergreen,
+13. Little Blue,
+14. Celestial Dancers,
+15. New Moon,
+16. Young Heart`],
+  [cd3, "Beautiful Lies", "2016", 
+  `1. Growing Pains,
+  2. Shadow,
+  3. Keeping Your Head Up,
+  4. Deep End,
+  5. Wild Horses,
+  6. Growing Pains,
+  7. Lost It All,
+  8. Silhouette,
+  9. Lifted,
+  10. Take My Heart,
+  11. Hear You Calling,
+  12. Words,
+  13. Save Yourself,
+  14. Unbroken`], 
+  [cd2, "Fire Within", "2012", `
+  1. Wings,
+  2. Heart of Gold,
+  3. Light Me Up,
+  4. Words as Weapons,
+  5. All You Never Say,
+  6. Strange Birds,
+  7. Maybe	Birdy,
+  8. No Angel,
+  9. All About You,
+  10. Standing in the Way of the Light,
+  11. Shine`
+ ],
+  [cd1, "Birdy", "2011",`
+  1. 1901	Birdy,
+  2. Skinny Love,
+  3. People Help the People,	
+  4. White Winter Hymnal,
+  5. The District Sleeps Alone Tonight,
+  6. I'll Never Forget You,
+  7. Young Blood,
+  8. Shelter,
+  9. Fire and Rain,
+  10. Without a Word,
+  11. Terrible Love`]]
