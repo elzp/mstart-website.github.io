@@ -205,13 +205,6 @@ header .header-wrapper img:hover {
     align-self: center;
     z-index: 2;
   }
-  #discs .disc-wrapper .disc-container .disc-img img {
-    transform: translateX(0%);
-    transition: transform 2s;
-  }
-  #discs .disc-wrapper .disc-container .disc-img img:hover {
-    transform: translateX(100%);
-  }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
     text-align: center;
@@ -300,13 +293,6 @@ header .header-wrapper img:hover {
     align-self: center;
     z-index: 2;
   }
-  #discs .disc-wrapper .disc-container .disc-img img {
-    transform: translateX(0%);
-    transition: transform 2s;
-  }
-  #discs .disc-wrapper .disc-container .disc-img img:hover {
-    transform: translateX(100%);
-  }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
     align-content: center;
@@ -384,13 +370,6 @@ header .header-wrapper img:hover {
     transition: transform 1.5s ease-in-out;
     align-self: center;
     z-index: 2;
-  }
-  #discs .disc-wrapper .disc-container .disc-img img {
-    transform: translateX(0%);
-    transition: transform 2s;
-  }
-  #discs .disc-wrapper .disc-container .disc-img img:hover {
-    transform: translateX(100%);
   }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
@@ -506,5 +485,21 @@ header .header-wrapper img:hover {
   }
   100% {
     transform: translate();
+  }
+}
+@keyframes slide-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slide-to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
