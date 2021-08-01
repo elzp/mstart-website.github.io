@@ -122,8 +122,8 @@ header .header-wrapper img:hover {
 }
 
 #form {
-  width: 50vh;
-  height: 100vw;
+  width: 50vw;
+  height: 100vh;
   overflow-y: scroll;
   background: #e9f4f3;
   border-left: 1px solid #262d35;
@@ -134,7 +134,7 @@ header .header-wrapper img:hover {
   display: none;
   position: fixed;
   animation-duration: 3s;
-  animation-name: animationName;
+  animation-name: slidein;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   display: inline;
@@ -456,11 +456,10 @@ header .header-wrapper img:hover {
 
 @keyframes slidein {
   0% {
-    transform: translate(200%, 0);
+    transform: translate(100vw, 0);
   }
   100% {
-    transform: translate(100%, 0);
-    width: 50vw;
+    transform: translate(50vw, 0);
   }
 }
 @keyframes to-left {
