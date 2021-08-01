@@ -13,6 +13,17 @@ function Discography(props) {
   const [count, setcount] =useState(//0);
   {0:false,1:false,2:false,3:false});
 
+  const slideInOut = (index) =>{
+    setcount(count=> 
+      { const f = 
+       {...count, 
+         [index]: !count[index],
+       };
+       return f;
+       }
+       )
+  }
+
   return (
     <div id="discs">
       <h4>Discography</h4>
@@ -27,14 +38,10 @@ function Discography(props) {
                 {it[3].split(",").map(it1=>(<p>{it1}</p>))}
                 </div>
                 <Image key={`img-${index}`} src={it[0]} count={count[index]}
-                onMouseOver={(e) => {setcount(count=> //count +1
-                 { const f = //{...count};
-                  {...count, 
-                    [index]: !count[index],
-                  };
-                  return f;
-                  }
-                  )}}
+                alt={`${it[1]} cover`}
+                tabIndex="1"
+                onMouseOver={()=>slideInOut(index)}
+                onKeyPress={()=>slideInOut(index)}
                 alt= {it[1]}
                 />
               </div>
