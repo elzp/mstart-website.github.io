@@ -59,7 +59,7 @@ header {
 }
 header .header-wrapper {
   justify-self: center;
-  font-family: Impact;
+  font-family: "Impact", "Anton", sans-serif;
   position: relative;
   margin: 0;
   padding: 0;
@@ -82,17 +82,28 @@ header .header-wrapper h1 {
   animation-name: to-bottom;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  transition: color 1s ease-in;
+}
+header .header-wrapper h1:hover {
+  color: #e9f4f3;
 }
 header .header-wrapper div {
   padding: 0;
 }
 header .header-wrapper img {
-  width: 110%;
+  width: 100vw;
+  height: auto;
   position: relative;
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 0;
   animation-duration: 3s;
   animation-name: to-left;
+  object-fit: cover;
+  object-position: 0% 0%;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+header .header-wrapper img:hover {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -105,13 +116,31 @@ header .header-wrapper img {
   color: #262d35;
 }
 
-#form {
-  width: 50vh;
-  height: 100vw;
-  overflow-y: scroll;
+.about > div:nth-child(-n+4):hover {
+  background-color: #f78845;
+  color: #e9f4f3;
 }
 
-@media (min-width: 480px) {
+#form {
+  width: 50vw;
+  height: 100vh;
+  overflow-y: scroll;
+  background: #e9f4f3;
+  border-left: 1px solid #262d35;
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  left: 0px;
+  display: none;
+  position: fixed;
+  animation-duration: 3s;
+  animation-name: slidein;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  display: inline;
+}
+
+@media (min-width: 380px) {
   .videos-wrapper {
     width: 50%;
     position: relative;
@@ -130,22 +159,22 @@ header .header-wrapper img {
   }
 
   #discs {
-    border: none;
     width: 90vw;
   }
   #discs .disc-wrapper {
+    padding: 0 auto;
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 45vw 45vw;
   }
   #discs .disc-wrapper .disc-container {
+    width: max-content;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
-    border: none;
     display: grid;
     justify-content: center;
+    justify-self: center;
     grid-auto-flow: row;
   }
   #discs .disc-wrapper .disc-container .disc-img {
@@ -154,10 +183,27 @@ header .header-wrapper img {
     border: none;
     display: grid;
   }
-  #discs .disc-wrapper .disc-container .disc-img img {
-    height: auto;
+  #discs .disc-wrapper .disc-container .disc-img > div {
+    position: absolute;
+    max-height: 35vw;
     width: 35vw;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  #discs .disc-wrapper .disc-container .disc-img > div p {
+    width: fit-content;
+    text-align: center;
+    width: 35vw;
+    margin: 0 auto;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: 35vw;
+    width: 35vw;
+    transition: transform 1.5s ease-in-out;
     align-self: center;
+    z-index: 2;
   }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
@@ -170,7 +216,7 @@ header .header-wrapper img {
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #f78845;
-    font-family: Impact;
+    font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
   }
@@ -182,7 +228,7 @@ header .header-wrapper img {
     color: #f78845;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 380px) {
   header .header-wrapper h1 {
     top: 5%;
     left: 8%;
@@ -197,48 +243,75 @@ header .header-wrapper img {
   }
 
   #discs {
-    border: none;
     width: 90vw;
   }
-  #discs .disc-container {
+  #discs .disc-wrapper {
+    padding: 0 auto;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+  #discs .disc-wrapper .disc-container {
+    width: max-content;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
-    border: none;
     display: grid;
     justify-content: center;
+    justify-self: center;
     grid-auto-flow: row;
   }
-  #discs .disc-container .disc-img {
+  #discs .disc-wrapper .disc-container .disc-img {
     padding: 0;
     margin: 0;
     border: none;
     display: grid;
+    justify-self: center;
+    align-content: center;
+    overflow-y: scroll;
   }
-  #discs .disc-container .disc-img img {
-    height: auto;
+  #discs .disc-wrapper .disc-container .disc-img > div {
+    position: absolute;
+    max-height: 60vw;
     width: 60vw;
-    align-self: center;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  #discs .disc-container .disc-text {
+  #discs .disc-wrapper .disc-container .disc-img > div p {
+    width: fit-content;
+    text-align: center;
+    width: 60vw;
+    margin: 0 auto;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: 60vw;
+    width: 60vw;
+    transition: transform 1.5s ease-in-out;
     align-self: center;
+    z-index: 2;
+  }
+  #discs .disc-wrapper .disc-container .disc-text {
+    align-self: center;
+    align-content: center;
     text-align: center;
     margin: 0;
     padding: 0;
     max-width: fit-content;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: row;
+    font-family: "Impact", "Anton", sans-serif;
   }
-  #discs .disc-container .disc-text .disc-title {
+  #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #f78845;
-    font-family: Impact;
-    text-align: left;
-    max-width: fit-content;
-  }
-  #discs .disc-container .disc-text .disc-year {
     text-align: right;
-    align-self: right;
-    font-size: 0.9em;
+    max-width: max-content;
+  }
+  #discs .disc-wrapper .disc-container .disc-text .disc-year {
+    text-align: left;
+    align-self: left;
     margin-left: 3em;
     color: #f78845;
   }
@@ -252,30 +325,53 @@ header .header-wrapper img {
   }
 
   #discs {
-    border: none;
     width: 90vw;
   }
-  #discs .disc-container {
+  #discs .disc-wrapper {
+    padding: 0 auto;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 50% 50%;
+  }
+  #discs .disc-wrapper .disc-container {
+    width: max-content;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
-    border: none;
     display: grid;
     justify-content: center;
+    justify-self: center;
     grid-auto-flow: row;
   }
-  #discs .disc-container .disc-img {
+  #discs .disc-wrapper .disc-container .disc-img {
     padding: 0;
     margin: 0;
     border: none;
     display: grid;
   }
-  #discs .disc-container .disc-img img {
-    height: auto;
-    width: 60vw;
-    align-self: center;
+  #discs .disc-wrapper .disc-container .disc-img > div {
+    position: absolute;
+    max-height: 35vw;
+    width: 35vw;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  #discs .disc-container .disc-text {
+  #discs .disc-wrapper .disc-container .disc-img > div p {
+    width: fit-content;
+    text-align: center;
+    width: 35vw;
+    margin: 0 auto;
+  }
+  #discs .disc-wrapper .disc-container .disc-img img {
+    height: 35vw;
+    width: 35vw;
+    transition: transform 1.5s ease-in-out;
+    align-self: center;
+    z-index: 2;
+  }
+  #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
     text-align: center;
     margin: 0;
@@ -284,13 +380,13 @@ header .header-wrapper img {
     display: grid;
     grid-auto-flow: column;
   }
-  #discs .disc-container .disc-text .disc-title {
+  #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #f78845;
-    font-family: Impact;
+    font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
   }
-  #discs .disc-container .disc-text .disc-year {
+  #discs .disc-wrapper .disc-container .disc-text .disc-year {
     text-align: right;
     align-self: right;
     font-size: 0.9em;
@@ -327,7 +423,6 @@ header .header-wrapper img {
   background: red;
   color: white;
   border-radius: 0;
-  border: none;
   height: 2em;
   width: 2em;
   margin: 0;
@@ -344,7 +439,6 @@ header .header-wrapper img {
 
 .questionsAnswer {
   border-radius: 0;
-  border: none;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.3em;
@@ -362,19 +456,18 @@ header .header-wrapper img {
 
 @keyframes slidein {
   0% {
-    transform: translate(200%, 0);
+    transform: translate(100vw, 0);
   }
   100% {
-    transform: translate(100%, 0);
-    width: 50vw;
+    transform: translate(50vw, 0);
   }
 }
 @keyframes to-left {
   0% {
-    transform: translateX(-20%);
+    transform: translateX(-10%);
   }
   100% {
-    transform: translateX(-8%);
+    transform: translateX(0%);
   }
 }
 @keyframes to-bottom {
@@ -391,5 +484,21 @@ header .header-wrapper img {
   }
   100% {
     transform: translate();
+  }
+}
+@keyframes slide-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slide-to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

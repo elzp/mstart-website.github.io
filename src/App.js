@@ -3,13 +3,12 @@ import img from './header-american-songwriter.jpg'
 import About from './components/About/About'
 import ContactForm from './components/ContactForm/ContactForm'
 import Verification from './components/Verification/Verification'
-import { parametersOfSlideForm, defaultformStyle, getQuestion } from './functionsAndVars';
+import { getQuestion } from './functionsAndVars';
 import { useState } from 'react';
 
 function App() {
 
   const [visibilityOfForm, setVisibilityOfForm] = useState(false);
-  const [formStyle, setFormStyle] = useState(defaultformStyle);
   const [timesOfStyleChanges, setTimesOfStyleChanges ] = useState(0);
   const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
   const [wasDataFromFormSend, setDataFromFormWasSend] = useState(false);
@@ -21,17 +20,6 @@ function App() {
     if (timesOfStyleChanges === 0){
         // added to not append additional style properties to css, which gives error
     setTimesOfStyleChanges(timesOfStyleChanges+1);
-    setFormStyle(
-      Object.assign(
-        formStyle, 
-        parametersOfSlideForm(
-          3, 
-          "slidein", 
-          "inline"
-        )
-      )    
-    );
-  
     }
   }
 
@@ -80,7 +68,6 @@ function App() {
          
         { visibilityOfForm &&
          <ContactForm 
-         style={formStyle} 
          setVisibilityOfForm={setVisibilityOfForm}
          handleSendingButtonClick={handleSendingButtonClick}
          visibilityOfVerification={visibilityOfVerification}

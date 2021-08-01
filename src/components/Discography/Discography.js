@@ -1,16 +1,17 @@
 import './../../dist/App.css';
-import React from 'react';
-import cd4 from './../../4young-heart.jpg';
-import cd3 from './../../3beautiful-lies.jpg';
-import cd2 from './../../2fire-within.jpg';
-import cd1 from './../../1birdy.jpg';
+import React, {useState} from 'react';
+import {infoAboutCds} from '../../functionsAndVars';
+import styled from 'styled-components'
+
+
+const Image = styled.img`
+transform: ${props => props.count ? "translateX(-90%)" : "translateX(0%)"};
+`
 
 function Discography(props) {
-  const cdsArray = [
-    [cd4, "Young heart", "2021"],
-    [cd3, "Beautiful Lies", "2016"], 
-    [cd2, "Fire Within", "2012" ],
-    [cd1, "Birdy", "2011"]];
+  const cdsArray = infoAboutCds;
+  const [count, setcount] =useState(//0);
+  {0:false,1:false,2:false,3:false});
 
   return (
     <div id="discs">
@@ -20,16 +21,28 @@ function Discography(props) {
            cdsArray.map((it, index)=>{
             return (
             <div className="disc-container">
-              <div key={index}
+              <div key={`dev-${index}`}
               className="disc-img">
-                <img src={it[0]} 
+                <div>
+                {it[3].split(",").map(it1=>(<p>{it1}</p>))}
+                </div>
+                <Image key={`img-${index}`} src={it[0]} count={count[index]}
+                onMouseOver={(e) => {setcount(count=> //count +1
+                 { const f = //{...count};
+                  {...count, 
+                    [index]: !count[index],
+                  };
+                  return f;
+                  }
+                  )}}
                 alt= {it[1]}
                 />
               </div>
               <div 
               className="disc-text"
-              key={index}>
+              key={`text-${index}`}>
                 <p className="disc-title">{it[1]}</p>
+                {/* <p  key={`p-${index}`} >{JSON.stringify(count[index])}</p> */}
                 <p className="disc-year">{it[2]}</p>
                 </div>
             </div>
