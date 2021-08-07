@@ -127,21 +127,21 @@ function ContactForm(props) {
         break;
       case formAreaNames[2]:
         newStatuses[2]=false;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         setFormValues(current =>{return {...current, [formAreaNames[2]]: input}});
         if(/^[a-zA-Z0-9._-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,6}$/.test(input) && /@{1}/.test(input)) {
           newStatuses[2]=true;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         } 
         break;
       case formAreaNames[3]:
         setFormValues(current =>{return {...current, [formAreaNames[3]]: input}});
         if(input !==""){
           newStatuses[3]=true;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         } else {
           newStatuses[3]=false;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         }
         break;
         case formAreaNames[4]:
@@ -149,10 +149,10 @@ function ContactForm(props) {
           const lengthOfPhone = (allInputedKeys.length >= 8 & allInputedKeys.length<=11);
           if(input !=="" & /(^[^0])(\d)/.test(input) & lengthOfPhone){
             newStatuses[4]=true;
-            setStatusOfInputedData(currentStatuses=> newStatuses);
+            setStatusOfInputedData(newStatuses);
           } else {
             newStatuses[4]=false;
-            setStatusOfInputedData(currentStatuses=> newStatuses);
+            setStatusOfInputedData(newStatuses);
           }
           break;        
       default:
