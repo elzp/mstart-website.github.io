@@ -127,32 +127,37 @@ function ContactForm(props) {
         break;
       case formAreaNames[2]:
         newStatuses[2]=false;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         setFormValues(current =>{return {...current, [formAreaNames[2]]: input}});
-        if(/^[a-zA-Z0-9._-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,6}$/.test(input) && /@{1}/.test(input)) {
+        if(/^[a-zA-Z0-9._-]{3,}@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,6}$/.test(input) && /@{1}/.test(input)) {
           newStatuses[2]=true;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         } 
         break;
       case formAreaNames[3]:
         setFormValues(current =>{return {...current, [formAreaNames[3]]: input}});
         if(input !==""){
           newStatuses[3]=true;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         } else {
           newStatuses[3]=false;
-          setStatusOfInputedData(currentStatuses=> newStatuses);
+          setStatusOfInputedData(newStatuses);
         }
         break;
         case formAreaNames[4]:
           setFormValues(current =>{return {...current, [formAreaNames[4]]: input}});
           const lengthOfPhone = (allInputedKeys.length >= 8 & allInputedKeys.length<=11);
-          if(input !=="" & /(^[^0])(\d)/.test(input) & lengthOfPhone){
+          if (/\D[^\s]/.test(input)) {
+            newStatuses[4]=false;
+            setStatusOfInputedData(newStatuses);
+            break;
+          }
+          if(/(^[^0])(\d)/.test(input) & lengthOfPhone){
             newStatuses[4]=true;
-            setStatusOfInputedData(currentStatuses=> newStatuses);
+            setStatusOfInputedData(newStatuses);
           } else {
             newStatuses[4]=false;
-            setStatusOfInputedData(currentStatuses=> newStatuses);
+            setStatusOfInputedData(newStatuses);
           }
           break;        
       default:
@@ -166,7 +171,7 @@ function ContactForm(props) {
     } else {
       setNameError("");
     }
-  },[nameStatus])
+  },[nameStatus, statusOfInputedData])
 
   useEffect(()=>{
     if(!surnameStatus) {
@@ -174,7 +179,7 @@ function ContactForm(props) {
     } else {
       setSurnameError("");
     }
-  },[surnameStatus])
+  },[surnameStatus, statusOfInputedData])
 
   useEffect(()=>{   
     if(!emailStatus) {
@@ -182,7 +187,7 @@ function ContactForm(props) {
       } else {
         setEmailError("");
       }
-    },[emailStatus])
+    },[emailStatus, statusOfInputedData])
   
   useEffect(()=>{
     if(!messageStatus) {
@@ -190,7 +195,7 @@ function ContactForm(props) {
     } else {
       setMessageError("");
     }
-  },[messageStatus])
+  },[messageStatus, statusOfInputedData])
 
   useEffect(()=>{
     if(!phoneStatus) {
@@ -198,7 +203,7 @@ function ContactForm(props) {
     } else {
       setPhoneError("");
     }
-  },[phoneStatus])
+  },[phoneStatus, statusOfInputedData])
 
   useEffect(()=>{
     if(wasDataFromFormSend){
