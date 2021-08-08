@@ -3,6 +3,7 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import useOutsideRef from './../../hooks/outsideRef';
 
 const emptyStrings = ["","","","",""];
+const minNumberOfLetters = 0;
 
 function ContactForm(props) {
   const { setVisibilityOfForm, handleSendingButtonClick,
@@ -75,7 +76,7 @@ function ContactForm(props) {
           setStatusOfInputedData(newStatuses);
         } 
 
-        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length >3) {
+        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length > minNumberOfLetters) {
           newStatuses[0]=true;
           setStatusOfInputedData(newStatuses);
         } else {
@@ -95,7 +96,7 @@ function ContactForm(props) {
           setStatusOfInputedData(newStatuses);
         } 
 
-        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length >3) {
+        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length > minNumberOfLetters) {
           newStatuses[1]=true;
           setStatusOfInputedData(newStatuses);
         } else {
@@ -111,7 +112,7 @@ function ContactForm(props) {
         newStatuses[2]=false;
           setStatusOfInputedData(newStatuses);
         setFormValues(current =>{return {...current, [formAreaNames[2]]: input}});
-        if(/^[a-zA-Z0-9._-]{3,}@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,6}$/.test(input) && /@{1}/.test(input)) {
+        if(/^[a-zA-Z0-9._-]{1,}@[a-zA-Z0-9.-]{1,}\.[a-zA-Z]{1,6}$/.test(input) && /@{1}/.test(input)) {
           newStatuses[2]=true;
           setStatusOfInputedData(newStatuses);
         } 
@@ -148,8 +149,8 @@ function ContactForm(props) {
   }
 
 const notNullErrorText = {
-  username:`Your name have to contain only letters and have them more than 3.`,
-  surname: `Your surname have to contain only letters and have them more than 3.`,
+  username:`Your name have to contain only letters and have them more than ${minNumberOfLetters+1}.`,
+  surname: `Your surname have to contain only letters and have them more than ${minNumberOfLetters+1}.`,
   email: `Your e-mail adress doesn't have  proper e-mail adress format.`,
   message: `Add some message.`,
   phone: `Phone has to contain only numbers and has length between 8 and 11.`,
