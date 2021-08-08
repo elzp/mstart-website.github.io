@@ -220,7 +220,7 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
     text-align: right;
     align-self: right;
-    font-size: 0.9em;
+    font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
     color: #f78845;
   }
@@ -309,6 +309,7 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
     text-align: left;
     align-self: left;
+    font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
     color: #f78845;
   }
@@ -386,7 +387,7 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
     text-align: right;
     align-self: right;
-    font-size: 0.9em;
+    font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
     color: #f78845;
   }

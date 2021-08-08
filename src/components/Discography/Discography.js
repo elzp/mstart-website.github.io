@@ -35,10 +35,10 @@ function Discography(props) {
               <div key={`dev-${index}`}
               className="disc-img">
                 <div>
-                {it[3].split(",").map(it1=>(<p>{it1}</p>))}
+                {it.songs.split(",").map(it1=>(<p>{it1}</p>))}
                 </div>
-                <Image key={`img-${index}`} src={it[0]} count={count[index]}
-                alt={`${it[1]} cover`}
+                <Image key={`img-${index}`} src={it.image} count={count[index]}
+                alt={`${it.title} cover`}
                 tabIndex="1"
                 onMouseOver={()=>slideInOut(index)}
                 onKeyPress={()=>slideInOut(index)}
@@ -48,9 +48,9 @@ function Discography(props) {
               <div 
               className="disc-text"
               key={`text-${index}`}>
-                <p className="disc-title">{it[1]}</p>
+                <p className="disc-title">{it.title}</p>
                 {/* <p  key={`p-${index}`} >{JSON.stringify(count[index])}</p> */}
-                <p className="disc-year">{it[2]}</p>
+                <p className="disc-year">{it.year}</p>
                 </div>
             </div>
             );}
