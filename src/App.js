@@ -2,15 +2,13 @@ import './dist/App.css';
 import img from './header-american-songwriter.jpg'
 import About from './components/About/About'
 import ContactForm from './components/ContactForm/ContactForm'
-import Verification from './components/Verification/Verification'
-import { getQuestion } from './functionsAndVars';
 import { useState } from 'react';
 
 function App() {
 
   const [visibilityOfForm, setVisibilityOfForm] = useState(false);
   const [timesOfStyleChanges, setTimesOfStyleChanges ] = useState(0);
-  const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
+  // const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
   const [wasDataFromFormSend, setDataFromFormWasSend] = useState(false);
 
   const handleContactButtonClick = () =>{
@@ -23,9 +21,9 @@ function App() {
     }
   }
 
-  const handleSendingButtonClick = () =>{
-    setvisibilityOfVerification(!visibilityOfVerification);
-  }
+  // const handleSendingButtonClick = () =>{
+  //   setvisibilityOfVerification(!visibilityOfVerification);
+  // }
 
   return (
     <div className="App">
@@ -69,19 +67,20 @@ function App() {
         { visibilityOfForm &&
          <ContactForm 
          setVisibilityOfForm={setVisibilityOfForm}
-         handleSendingButtonClick={handleSendingButtonClick}
-         visibilityOfVerification={visibilityOfVerification}
+        //  handleSendingButtonClick={handleSendingButtonClick}
+        //  visibilityOfVerification={visibilityOfVerification}
          wasDataFromFormSend={wasDataFromFormSend}
+         setDataFromFormWasSend={setDataFromFormWasSend}
          />
          }
-         {visibilityOfVerification &&
+         {/* {visibilityOfVerification &&
           <Verification
           firstQuestion={getQuestion([])}
           setvisibilityOfVerification={setvisibilityOfVerification}
           setDataFromFormWasSend={setDataFromFormWasSend}
           setVisibilityOfForm={setVisibilityOfForm}
           /> 
-          }
+          } */}
       </main>
     </div>
   );

@@ -1,12 +1,17 @@
 import './../../dist/App.css';
+import Verification from './../Verification/Verification'
+import { getQuestion } from './../../functionsAndVars';
 import React, { useRef, useCallback, useState, useEffect } from 'react';
 import useOutsideRef from './../../hooks/outsideRef';
 
+const emptyStrings = ["","","","",""];
+const minNumberOfLetters = 0;
 
 function ContactForm(props) {
-  const { setVisibilityOfForm, style, handleSendingButtonClick,
-   visibilityOfVerification, wasDataFromFormSend
-} = props;
+  const { setVisibilityOfForm, wasDataFromFormSend, setDataFromFormWasSend } = props;
+
+  const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
+
   const wrapper = useRef(null);
   const handlesettingVisibilityOfForm = useCallback(() => {
     if (visibilityOfVerification) {
@@ -20,61 +25,42 @@ function ContactForm(props) {
   }, [setVisibilityOfForm, visibilityOfVerification, wasDataFromFormSend]);
   useOutsideRef(wrapper, handlesettingVisibilityOfForm)
   
-  const formAreaNames = ["username", "surname", "e-mail", "message", "phone"];
+  const formAreaNames = ["username", "surname", "email", "message", "phone"];
   const defaultFormValues = {
-    [formAreaNames[0]]: "",
-    [formAreaNames[1]]: "",
-    [formAreaNames[2]]: "",
-    [formAreaNames[3]]: "",
-    [formAreaNames[4]]: "",
+      username: "",
+      surname: "",
+      email: "",
+      message: "",
+      phone: "",
   };
   const [formValues, setFormValues] =useState(defaultFormValues);
-    const [nameError, setNameError] = useState("");
-    const [surnameError, setSurnameError] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [messageError, setMessageError] = useState("");
-    const [phoneError, setPhoneError] = useState("");
-    const [sendingError, setSendingError] = useState("");
+  const [sendingError, setSendingError] = useState("");
 
+    const [errors, setErrors] = useState(emptyStrings);
     const [statusOfInputedData, setStatusOfInputedData] = useState([true, true, true, true, true]);
-    const [nameStatus, surnameStatus, emailStatus, messageStatus, phoneStatus] = statusOfInputedData;
 
   
   const handleClickingButtonToSend = () => {
     if(
-    nameError==="" & 
-    surnameError==="" & 
-    emailError==="" & 
-    messageError==="" & 
-    phoneError === "" &
-    formValues[formAreaNames[0]] !== "" &
-    formValues[formAreaNames[1]] !== "" &
-    formValues[formAreaNames[2]] !== "" &
-    formValues[formAreaNames[3]] !== "" &
-    formValues[formAreaNames[4]] !== ""
+    errors.every(it=>it ==="")
+    & Object.values(formValues).every(it=>it!=="")
     ){
        
-      handleSendingButtonClick();
+      setvisibilityOfVerification(!visibilityOfVerification);
       setSendingError("");
     }else {setSendingError("Add all proper informations to send it to us.");}
   }
 
   useEffect(()=>{
-    if(nameError==="" & 
-    surnameError==="" & 
-    emailError==="" & 
-    messageError==="" & 
-    phoneError === "" & 
+     if( 
+      errors === emptyStrings & 
     sendingError!== "" &
-    formValues[formAreaNames[0]] !== "" &
-    formValues[formAreaNames[1]] !== "" &
-    formValues[formAreaNames[2]] !== "" &
-    formValues[formAreaNames[3]] !== "" &
-    formValues[formAreaNames[4]] !== ""
+    Object.values(formValues).every(it=>it==="")
       ){
         setSendingError(""); //clean error of sending
     }
-  }, [nameError, surnameError, emailError, messageError, phoneError, sendingError]);
+  }, [errors, formAreaNames, formValues, sendingError
+  ]);
 
   const handleInputChange = (event, type) => {
     // event.preventDefault();
@@ -93,7 +79,7 @@ function ContactForm(props) {
           setStatusOfInputedData(newStatuses);
         } 
 
-        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length >3) {
+        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length > minNumberOfLetters) {
           newStatuses[0]=true;
           setStatusOfInputedData(newStatuses);
         } else {
@@ -113,7 +99,7 @@ function ContactForm(props) {
           setStatusOfInputedData(newStatuses);
         } 
 
-        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length >3) {
+        if(!/(\W)|(\d)|(\s)/.test(input) & allInputedKeys.length > minNumberOfLetters) {
           newStatuses[1]=true;
           setStatusOfInputedData(newStatuses);
         } else {
@@ -129,7 +115,7 @@ function ContactForm(props) {
         newStatuses[2]=false;
           setStatusOfInputedData(newStatuses);
         setFormValues(current =>{return {...current, [formAreaNames[2]]: input}});
-        if(/^[a-zA-Z0-9._-]{3,}@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,6}$/.test(input) && /@{1}/.test(input)) {
+        if(/^[a-zA-Z0-9._-]{1,}@[a-zA-Z0-9.-]{1,}\.[a-zA-Z]{1,6}$/.test(input) && /@{1}/.test(input)) {
           newStatuses[2]=true;
           setStatusOfInputedData(newStatuses);
         } 
@@ -165,54 +151,31 @@ function ContactForm(props) {
     }
   }
 
-  useEffect(()=>{
-    if(!nameStatus) {
-      setNameError('Your name have to contain only letters and have them more than 3.');
-    } else {
-      setNameError("");
-    }
-  },[nameStatus, statusOfInputedData])
+const notNullErrorText = {
+  username:`Your name have to contain only letters and have them more than ${minNumberOfLetters+1}.`,
+  surname: `Your surname have to contain only letters and have them more than ${minNumberOfLetters+1}.`,
+  email: `Your e-mail adress doesn't have  proper e-mail adress format.`,
+  message: `Add some message.`,
+  phone: `Phone has to contain only numbers and has length between 8 and 11.`,
+  }
 
-  useEffect(()=>{
-    if(!surnameStatus) {
-      setSurnameError('Your surname have to contain only letters and have them more than 3.');
+  const changeErrorText = (index)=>{
+    if(!statusOfInputedData[index]) {
+      return `${notNullErrorText[formAreaNames[index]]}`;
     } else {
-      setSurnameError("");
+      return "";
     }
-  },[surnameStatus, statusOfInputedData])
+  }
+  useEffect(()=>{
+    const newErrorsText = statusOfInputedData.map((value, index)=>changeErrorText(index));
+    setErrors(newErrorsText);
+  },[statusOfInputedData])
 
-  useEffect(()=>{   
-    if(!emailStatus) {
-      setEmailError("Your e-mail adress doesn't have  proper e-mail adress format.");
-      } else {
-        setEmailError("");
-      }
-    },[emailStatus, statusOfInputedData])
-  
-  useEffect(()=>{
-    if(!messageStatus) {
-      setMessageError("Add some message.");
-    } else {
-      setMessageError("");
-    }
-  },[messageStatus, statusOfInputedData])
-
-  useEffect(()=>{
-    if(!phoneStatus) {
-      setPhoneError("Phone has to contain only numbers and has length between 8 and 11.");
-    } else {
-      setPhoneError("");
-    }
-  },[phoneStatus, statusOfInputedData])
 
   useEffect(()=>{
     if(wasDataFromFormSend){
       setFormValues(defaultFormValues);
-      setNameError("");
-      setSurnameError("");
-      setEmailError("");
-      setMessageError("");
-      setPhoneError("");
+      setErrors(emptyStrings);
     }
   }, [wasDataFromFormSend])
 
@@ -231,33 +194,33 @@ function ContactForm(props) {
             onChange={(event) => {
             handleInputChange(event, formAreaNames[0]);}}
             />
-            <div className="error"><bold>{nameError}</bold></div>
+            <div className="error"><bold>{errors[0]}</bold></div>
             <p>Your surname:</p>
             <input label="surname"
             value={formValues[formAreaNames[1]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[1])}}
             />
-            <div className="error"><bold>{surnameError}</bold></div>
+            <div className="error"><bold>{errors[1]}</bold></div>
             <p>Your e-mail adress:</p>
             <input label="e-mail"
             type="email"
             value={formValues[formAreaNames[2]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[2])}}
             />
-            <div className="error"><bold>{emailError}</bold></div>
+            <div className="error"><bold>{errors[2]}</bold></div>
             <p>Your phone number:</p>
             <input label="phone"
             type="tel"
             value={formValues[formAreaNames[4]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[4])}}
             />
-            <div className="error"><bold>{phoneError}</bold></div>
+            <div className="error"><bold>{errors[4]}</bold></div>
             <p>Tell us e.g. when and where you want us to perform concert:</p>
             <textarea label="message"
             value={formValues[formAreaNames[3]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[3])}}
             />
-            <div className="error"><bold>{messageError}</bold></div>
+            <div className="error"><bold>{errors[3]}</bold></div>
             <div className="error">{sendingError}</div>
         </div>
         <div><button 
@@ -265,6 +228,14 @@ function ContactForm(props) {
         onClick={handleClickingButtonToSend}
         disabled={visibilityOfVerification}
         >Send your proposition.</button></div>
+        {visibilityOfVerification &&
+          <Verification
+          firstQuestion={getQuestion([])}
+          setvisibilityOfVerification={setvisibilityOfVerification}
+          setDataFromFormWasSend={setDataFromFormWasSend}
+          setVisibilityOfForm={setVisibilityOfForm}
+          /> 
+          }
     </div>
 
   );

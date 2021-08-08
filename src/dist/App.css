@@ -96,12 +96,8 @@ header .header-wrapper img {
   position: relative;
   margin: 0;
   padding: 0;
-  animation-duration: 3s;
-  animation-name: to-left;
   object-fit: cover;
   object-position: 0% 0%;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
 }
 header .header-wrapper img:hover {
   -webkit-animation-fill-mode: forwards;
@@ -138,6 +134,7 @@ header .header-wrapper img:hover {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   display: inline;
+  z-index: 3;
 }
 
 @media (min-width: 380px) {
@@ -399,24 +396,23 @@ header .header-wrapper img:hover {
   }
 
   .verification {
-    top: 5vh;
-    left: 20vw;
     position: fixed;
+    z-index: 4;
   }
 }
 .verification {
-  width: 60vw;
-  min-height: 40vh;
   justify-self: center;
-  justify-content: right;
+  justify-content: center;
   background-image: "./../form-bg-mikhail-nilov.jpg";
   background: #e9f4f3;
   border: 1px solid #262d35;
   margin: 0;
   padding: 0 0 1em 0;
-  top: 17vh;
-  left: 20vw;
+  z-index: 4;
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #exit {
@@ -462,28 +458,12 @@ header .header-wrapper img:hover {
     transform: translate(50vw, 0);
   }
 }
-@keyframes to-left {
-  0% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
 @keyframes to-bottom {
   0% {
     transform: translateY(-30%);
   }
   100% {
     transform: translateY(25%);
-  }
-}
-@keyframes slideout {
-  0% {
-    transform: translate(100%, 0);
-  }
-  100% {
-    transform: translate();
   }
 }
 @keyframes slide-to-right {
