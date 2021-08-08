@@ -9,14 +9,14 @@ function Verification(props) {
     const [numberOfGoodQuestions, setNumberOfGoodQuestions] = useState(0);
     const [text, settext] = useState('');
     const [visibilityOfRestartButton, setVisibilityOfRestartButton] = useState(false);
-
-    const {question: {question, answers, goodAnswer}, askedQuestions} = questionData;
+    const {question: {question: questionText, answers}, askedQuestions} = questionData;
     const errorText = 'You had 5 chances and you did\'t get 3 good answers.';
     const sendText = 'Your\'e message was send. Verification tab will close after about 3 seconds.';
 
     const handleAnswering = (event) => {
-      
-      if(event.target.value === answers[goodAnswer-1]){
+      const goodAnswerObject = answers.filter(it=>it.isGood===true);
+      const {answer} = goodAnswerObject[0];
+      if(event.target.value === answer){
         setNumberOfGoodQuestions(numberOfGoodQuestions+1);
       }
 
@@ -88,13 +88,13 @@ function Verification(props) {
         <h4>We must check if you're a person ;)</h4>
         <h6>Please answer 3 questions.</h6>
         <div className="question">
-            {question}
+            {questionText}
         </div>
         {answers.map((item, index) =><div key={index}>
         <button className="questionsAnswer"
-        onClick={(event, item)=>handleAnswering(event)}
-        value={item}
-        >{item}</button>
+        onClick={(event)=>handleAnswering(event)}
+        value={item.answer}
+        >{item.answer}</button>
         </div>)}
         <div className="comunicates"><bold>{text}</bold></div>
         <div>
