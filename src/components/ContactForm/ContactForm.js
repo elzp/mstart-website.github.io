@@ -1,4 +1,6 @@
 import './../../dist/App.css';
+import Verification from './../Verification/Verification'
+import { getQuestion } from './../../functionsAndVars';
 import React, { useRef, useCallback, useState, useEffect } from 'react';
 import useOutsideRef from './../../hooks/outsideRef';
 
@@ -6,9 +8,10 @@ const emptyStrings = ["","","","",""];
 const minNumberOfLetters = 0;
 
 function ContactForm(props) {
-  const { setVisibilityOfForm, handleSendingButtonClick,
-   visibilityOfVerification, wasDataFromFormSend
-} = props;
+  const { setVisibilityOfForm, wasDataFromFormSend, setDataFromFormWasSend } = props;
+
+  const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
+
   const wrapper = useRef(null);
   const handlesettingVisibilityOfForm = useCallback(() => {
     if (visibilityOfVerification) {
@@ -39,11 +42,11 @@ function ContactForm(props) {
   
   const handleClickingButtonToSend = () => {
     if(
-    errors === emptyStrings &
-    Object.values(formValues).every(it=>it==="")
+    errors.every(it=>it ==="")
+    & Object.values(formValues).every(it=>it!=="")
     ){
        
-      handleSendingButtonClick();
+      setvisibilityOfVerification(!visibilityOfVerification);
       setSendingError("");
     }else {setSendingError("Add all proper informations to send it to us.");}
   }
@@ -225,6 +228,14 @@ const notNullErrorText = {
         onClick={handleClickingButtonToSend}
         disabled={visibilityOfVerification}
         >Send your proposition.</button></div>
+        {visibilityOfVerification &&
+          <Verification
+          firstQuestion={getQuestion([])}
+          setvisibilityOfVerification={setvisibilityOfVerification}
+          setDataFromFormWasSend={setDataFromFormWasSend}
+          setVisibilityOfForm={setVisibilityOfForm}
+          /> 
+          }
     </div>
 
   );
