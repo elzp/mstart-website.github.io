@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/music-star-website/static/css/main.d3c6dd3d.chunk.css",
-    "main.js": "/music-star-website/static/js/main.c6b0636b.chunk.js",
-    "main.js.map": "/music-star-website/static/js/main.c6b0636b.chunk.js.map",
-    "runtime-main.js": "/music-star-website/static/js/runtime-main.7d4d4596.js",
-    "runtime-main.js.map": "/music-star-website/static/js/runtime-main.7d4d4596.js.map",
-    "static/js/2.2a709ce1.chunk.js": "/music-star-website/static/js/2.2a709ce1.chunk.js",
-    "static/js/2.2a709ce1.chunk.js.map": "/music-star-website/static/js/2.2a709ce1.chunk.js.map",
-    "static/js/3.6a974793.chunk.js": "/music-star-website/static/js/3.6a974793.chunk.js",
-    "static/js/3.6a974793.chunk.js.map": "/music-star-website/static/js/3.6a974793.chunk.js.map",
+    "main.css": "/music-star-website/static/css/main.e86c952e.chunk.css",
+    "main.js": "/music-star-website/static/js/main.d63e4ee2.chunk.js",
+    "main.js.map": "/music-star-website/static/js/main.d63e4ee2.chunk.js.map",
+    "runtime-main.js": "/music-star-website/static/js/runtime-main.c7422e82.js",
+    "runtime-main.js.map": "/music-star-website/static/js/runtime-main.c7422e82.js.map",
+    "static/js/2.9a3b672e.chunk.js": "/music-star-website/static/js/2.9a3b672e.chunk.js",
+    "static/js/2.9a3b672e.chunk.js.map": "/music-star-website/static/js/2.9a3b672e.chunk.js.map",
+    "static/js/3.6767586a.chunk.js": "/music-star-website/static/js/3.6767586a.chunk.js",
+    "static/js/3.6767586a.chunk.js.map": "/music-star-website/static/js/3.6767586a.chunk.js.map",
     "index.html": "/music-star-website/index.html",
-    "static/css/main.d3c6dd3d.chunk.css.map": "/music-star-website/static/css/main.d3c6dd3d.chunk.css.map",
-    "static/js/2.2a709ce1.chunk.js.LICENSE.txt": "/music-star-website/static/js/2.2a709ce1.chunk.js.LICENSE.txt",
+    "static/css/main.e86c952e.chunk.css.map": "/music-star-website/static/css/main.e86c952e.chunk.css.map",
+    "static/js/2.9a3b672e.chunk.js.LICENSE.txt": "/music-star-website/static/js/2.9a3b672e.chunk.js.LICENSE.txt",
     "static/media/1birdy.0ebed2b9.jpg": "/music-star-website/static/media/1birdy.0ebed2b9.jpg",
     "static/media/2fire-within.d5e8263b.jpg": "/music-star-website/static/media/2fire-within.d5e8263b.jpg",
     "static/media/3beautiful-lies.c96dc547.jpg": "/music-star-website/static/media/3beautiful-lies.c96dc547.jpg",
@@ -19,9 +19,9 @@
     "static/media/header-american-songwriter.7e284031.jpg": "/music-star-website/static/media/header-american-songwriter.7e284031.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7d4d4596.js",
-    "static/js/2.2a709ce1.chunk.js",
-    "static/css/main.d3c6dd3d.chunk.css",
-    "static/js/main.c6b0636b.chunk.js"
+    "static/js/runtime-main.c7422e82.js",
+    "static/js/2.9a3b672e.chunk.js",
+    "static/css/main.e86c952e.chunk.css",
+    "static/js/main.d63e4ee2.chunk.js"
   ]
 }
