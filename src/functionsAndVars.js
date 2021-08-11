@@ -31,40 +31,113 @@ export const parametersOfSlideForm = (animationDuration, animationName, displayV
 
 //// verification code
 // set of questions
-const questions = {
-  1: { 
+const questions = [
+  { 
     question: 'Which instrument doesn\'t have strings?',
-    answers: ["guitar", "trumpet", "harp"],
-    goodAnswer: 2,
+    answers: [
+      {
+      answer: "guitar",
+      isGood: false,
+      },
+      {
+        answer: "trumpet",
+        isGood: true,
+      },
+      {
+        answer: "harp",
+        isGood: false,
+      },
+    ]
   },
-  2: { 
+  { 
     question: 'To which instrument you have to blow to play it?',
-    answers: ["trumpet", "piano", "drum"],
-    goodAnswer: 1,
+    answers: [
+      {
+      answer: "trumpet",
+      isGood: true,
+      },
+      {
+        answer: "piano",
+        isGood: false,
+      },
+      {
+        answer: "drum",
+        isGood: false,
+      },
+    ]
   },
-  3: { 
+  { 
     question: 'Which instrument doesn\'t have keys?',
-    answers: ["accordion", "piano", "guitar"],
-    goodAnswer: 3,
+    answers: [
+      {
+      answer: "accordion",
+      isGood: false,
+      },
+      {
+        answer: "piano",
+        isGood: false,
+      },
+      {
+        answer: "guitar",
+        isGood: true,
+      },
+    ]
   },
-  4: { 
+  { 
     question: 'Which of below isn\'t a name of singing voice?',
-    answers: ["alto", "Freddie Mercury", "soprano"],
-    goodAnswer: 2,
+    answers: [
+      {
+      answer: "alto",
+      isGood: false,
+      },
+      {
+        answer: "Freddie Mercury",
+        isGood: true,
+      },
+      {
+        answer: "soprano",
+        isGood: false,
+      },
+    ]
   },
-  5: { 
+  { 
     question: 'Which band usually perform pop songs?',
-    answers: ["Rammstein", "Mettalica", "Panic in the Disco"],
-    goodAnswer: 3,
+    answers: [
+      {
+      answer: "Rammstein",
+      isGood: false,
+      },
+      {
+        answer: "Mettalica",
+        isGood: false,
+      },
+      {
+        answer: "Panic in the Disco",
+        isGood: true,
+      },
+    ]
   },
-  6: { 
+  { 
     question: 'Which artist/band originated in \'90s?',
-    answers: ["Birdy", "Billie Eilish", "Nirvana"],
-    goodAnswer: 3,
+    answers: [
+      {
+      answer: "Birdy",
+      isGood: false,
+      },
+      {
+        answer: "Billie Eilish",
+        isGood: false,
+      },
+      {
+        answer: "Nirvana",
+        isGood: true,
+      },
+    ]
   }
-};
+];
 // array with keys in question object
-const indexesArray = Object.keys(questions).map(it=>+it);
+const indexesArray = questions.map((value, index)=>index);
+// Object.keys(questions).map(it=>+it);
 
 // get question with answers
 
@@ -73,8 +146,20 @@ export const getQuestion = (
 ) => {
   let question = { 
     question: '',
-    answers: ["", "", ""],
-    goodAnswer: "",
+    answers: [
+      {
+      answer: "",
+      isGood: false,
+      },
+      {
+        answer: "",
+        isGood: false,
+      },
+      {
+        answer: "",
+        isGood: false,
+      },
+    ]
   };
   let answeredQuestions = askedQuestions;
   if(askedQuestions.length===5){
@@ -91,8 +176,6 @@ export const getQuestion = (
 
   if (askedQuestions === []){
     notAskedQuestions = indexesArray;
-    random = Math.ceil(Math.random()*notAskedQuestions.length);
-
   }else{
     // get  questions which haven't been asked
     notAskedQuestions = indexesArray.filter(
@@ -100,10 +183,8 @@ export const getQuestion = (
       // checks if number of question isn't in askedQuestions array
       askedQuestions.every(it2=>it!==it2) 
     )
-
-    random = Math.ceil(Math.random()*notAskedQuestions.length);
   }
-
+  random = Math.ceil(Math.random()*notAskedQuestions.length);
   // choose id of question
   const idOfChoosenQuestion = notAskedQuestions[random-1];
  
