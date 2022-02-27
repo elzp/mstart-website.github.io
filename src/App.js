@@ -53,7 +53,7 @@ const [idOfDisplayedVideo, setIdOfDisplayedVideo ] = useState(0);
       <main>      
         <div>
           <About />
-          <div>
+          <div className="video-section">
             <h4>Listen some of her songs.</h4>
             <div className="videos">
               <div className="videos-main">

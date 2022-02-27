@@ -15,7 +15,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #e9f4f3;
   color: #262d35;
-  width: 100%;
   scrollbar-width: none;
   overflow-x: hidden;
   background-image: linear-gradient(to bottom, #e9f4f3, #f78845);
