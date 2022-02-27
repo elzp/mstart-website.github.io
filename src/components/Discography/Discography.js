@@ -13,6 +13,17 @@ function Discography(props) {
   const [count, setcount] =useState(//0);
   {0:false,1:false,2:false,3:false});
 
+  const slideInOut = (index) =>{
+    setcount(count=> 
+      { const f = 
+       {...count, 
+         [index]: !count[index],
+       };
+       return f;
+       }
+       )
+  }
+
   return (
     <div id="discs">
       <h4>Discography</h4>
@@ -24,26 +35,22 @@ function Discography(props) {
               <div key={`dev-${index}`}
               className="disc-img">
                 <div>
-                {it[3].split(",").map(it1=>(<p>{it1}</p>))}
+                {it.songs.split(",").map(it1=>(<p>{it1}</p>))}
                 </div>
-                <Image key={`img-${index}`} src={it[0]} count={count[index]}
-                onMouseOver={(e) => {setcount(count=> //count +1
-                 { const f = //{...count};
-                  {...count, 
-                    [index]: !count[index],
-                  };
-                  return f;
-                  }
-                  )}}
+                <Image key={`img-${index}`} src={it.image} count={count[index]}
+                alt={`${it.title} cover`}
+                tabIndex="1"
+                onMouseOver={()=>slideInOut(index)}
+                onKeyPress={()=>slideInOut(index)}
                 alt= {it[1]}
                 />
               </div>
               <div 
               className="disc-text"
               key={`text-${index}`}>
-                <p className="disc-title">{it[1]}</p>
+                <p className="disc-title">{it.title}</p>
                 {/* <p  key={`p-${index}`} >{JSON.stringify(count[index])}</p> */}
-                <p className="disc-year">{it[2]}</p>
+                <p className="disc-year">{it.year}</p>
                 </div>
             </div>
             );}

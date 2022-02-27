@@ -1,16 +1,15 @@
 import './dist/App.css';
 import img from './header-american-songwriter.jpg'
 import About from './components/About/About'
+import Video from './components/Video/Video'
 import ContactForm from './components/ContactForm/ContactForm'
-import Verification from './components/Verification/Verification'
-import { getQuestion } from './functionsAndVars';
 import { useState } from 'react';
 
 function App() {
 
   const [visibilityOfForm, setVisibilityOfForm] = useState(false);
   const [timesOfStyleChanges, setTimesOfStyleChanges ] = useState(0);
-  const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
+  // const [visibilityOfVerification, setvisibilityOfVerification] = useState(false);
   const [wasDataFromFormSend, setDataFromFormWasSend] = useState(false);
 
   const handleContactButtonClick = () =>{
@@ -23,9 +22,25 @@ function App() {
     }
   }
 
-  const handleSendingButtonClick = () =>{
-    setvisibilityOfVerification(!visibilityOfVerification);
-  }
+  // const handleSendingButtonClick = () =>{
+  //   setvisibilityOfVerification(!visibilityOfVerification);
+  // }
+const videos = [
+  { 
+    videoId: 'OmLNs6zQIHo',
+    title: 'people help the people',
+  },
+  { 
+    videoId: 'WJTXDCh2YiA',
+    title: 'wings',
+  },
+  { 
+    videoId: '6K25KhCq7p8',
+    title: 'second hand news',
+  },
+]
+
+const [idOfDisplayedVideo, setIdOfDisplayedVideo ] = useState(0);
 
   return (
     <div className="App">
@@ -37,51 +52,54 @@ function App() {
       </header>
       <main>      
         <div>
-          <div>
           <About />
-          <h4>Listen some of her songs.</h4>
-         <div>
-          <div className="videos-wrapper"> 
           <div>
-          <iframe src="https://www.youtube.com/embed/OmLNs6zQIHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h4>Listen some of her songs.</h4>
+            <div className="videos">
+              <div className="videos-main">
+                <div className="videos-wrapper"> 
+                    <iframe 
+                    src={`https://www.youtube.com/embed/${videos[idOfDisplayedVideo].videoId}`} 
+                    title={videos[idOfDisplayedVideo].title} 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div className="videos-list">
+                {videos.map((item, index)=>(
+                    <Video 
+                    id={index}
+                    videoId={item.videoId} 
+                    title={item.title} 
+                    setIdOfDisplayedVideo={setIdOfDisplayedVideo}
+                    />
+                ))
+                }
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="videos-wrapper">
-          <div>
-            <iframe src="https://www.youtube.com/embed/WJTXDCh2YiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div className="videos-wrapper">
-          <div>
-          <iframe //width="560" height="315"
-           src="https://www.youtube.com/embed/6K25KhCq7p8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-        </div>  
-          </div>
-
             <button id="btn-contact" 
             disabled={visibilityOfForm}
             onClick={handleContactButtonClick}
             >Contact with us!</button>
-         </div>
+        </div>
          
         { visibilityOfForm &&
          <ContactForm 
          setVisibilityOfForm={setVisibilityOfForm}
-         handleSendingButtonClick={handleSendingButtonClick}
-         visibilityOfVerification={visibilityOfVerification}
+        //  handleSendingButtonClick={handleSendingButtonClick}
+        //  visibilityOfVerification={visibilityOfVerification}
          wasDataFromFormSend={wasDataFromFormSend}
+         setDataFromFormWasSend={setDataFromFormWasSend}
          />
          }
-         {visibilityOfVerification &&
+         {/* {visibilityOfVerification &&
           <Verification
           firstQuestion={getQuestion([])}
           setvisibilityOfVerification={setvisibilityOfVerification}
           setDataFromFormWasSend={setDataFromFormWasSend}
           setVisibilityOfForm={setVisibilityOfForm}
           /> 
-          }
+          } */}
       </main>
     </div>
   );

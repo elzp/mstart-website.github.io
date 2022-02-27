@@ -31,40 +31,113 @@ export const parametersOfSlideForm = (animationDuration, animationName, displayV
 
 //// verification code
 // set of questions
-const questions = {
-  1: { 
+const questions = [
+  { 
     question: 'Which instrument doesn\'t have strings?',
-    answers: ["guitar", "trumpet", "harp"],
-    goodAnswer: 2,
+    answers: [
+      {
+      answer: "guitar",
+      isGood: false,
+      },
+      {
+        answer: "trumpet",
+        isGood: true,
+      },
+      {
+        answer: "harp",
+        isGood: false,
+      },
+    ]
   },
-  2: { 
+  { 
     question: 'To which instrument you have to blow to play it?',
-    answers: ["trumpet", "piano", "drum"],
-    goodAnswer: 1,
+    answers: [
+      {
+      answer: "trumpet",
+      isGood: true,
+      },
+      {
+        answer: "piano",
+        isGood: false,
+      },
+      {
+        answer: "drum",
+        isGood: false,
+      },
+    ]
   },
-  3: { 
+  { 
     question: 'Which instrument doesn\'t have keys?',
-    answers: ["accordion", "piano", "guitar"],
-    goodAnswer: 3,
+    answers: [
+      {
+      answer: "accordion",
+      isGood: false,
+      },
+      {
+        answer: "piano",
+        isGood: false,
+      },
+      {
+        answer: "guitar",
+        isGood: true,
+      },
+    ]
   },
-  4: { 
+  { 
     question: 'Which of below isn\'t a name of singing voice?',
-    answers: ["alto", "Freddie Mercury", "soprano"],
-    goodAnswer: 2,
+    answers: [
+      {
+      answer: "alto",
+      isGood: false,
+      },
+      {
+        answer: "Freddie Mercury",
+        isGood: true,
+      },
+      {
+        answer: "soprano",
+        isGood: false,
+      },
+    ]
   },
-  5: { 
+  { 
     question: 'Which band usually perform pop songs?',
-    answers: ["Rammstein", "Mettalica", "Panic in the Disco"],
-    goodAnswer: 3,
+    answers: [
+      {
+      answer: "Rammstein",
+      isGood: false,
+      },
+      {
+        answer: "Mettalica",
+        isGood: false,
+      },
+      {
+        answer: "Panic in the Disco",
+        isGood: true,
+      },
+    ]
   },
-  6: { 
+  { 
     question: 'Which artist/band originated in \'90s?',
-    answers: ["Birdy", "Billie Eilish", "Nirvana"],
-    goodAnswer: 3,
+    answers: [
+      {
+      answer: "Birdy",
+      isGood: false,
+      },
+      {
+        answer: "Billie Eilish",
+        isGood: false,
+      },
+      {
+        answer: "Nirvana",
+        isGood: true,
+      },
+    ]
   }
-};
+];
 // array with keys in question object
-const indexesArray = Object.keys(questions).map(it=>+it);
+const indexesArray = questions.map((value, index)=>index);
+// Object.keys(questions).map(it=>+it);
 
 // get question with answers
 
@@ -73,8 +146,20 @@ export const getQuestion = (
 ) => {
   let question = { 
     question: '',
-    answers: ["", "", ""],
-    goodAnswer: "",
+    answers: [
+      {
+      answer: "",
+      isGood: false,
+      },
+      {
+        answer: "",
+        isGood: false,
+      },
+      {
+        answer: "",
+        isGood: false,
+      },
+    ]
   };
   let answeredQuestions = askedQuestions;
   if(askedQuestions.length===5){
@@ -91,8 +176,6 @@ export const getQuestion = (
 
   if (askedQuestions === []){
     notAskedQuestions = indexesArray;
-    random = Math.ceil(Math.random()*notAskedQuestions.length);
-
   }else{
     // get  questions which haven't been asked
     notAskedQuestions = indexesArray.filter(
@@ -100,10 +183,8 @@ export const getQuestion = (
       // checks if number of question isn't in askedQuestions array
       askedQuestions.every(it2=>it!==it2) 
     )
-
-    random = Math.ceil(Math.random()*notAskedQuestions.length);
   }
-
+  random = Math.ceil(Math.random()*notAskedQuestions.length);
   // choose id of question
   const idOfChoosenQuestion = notAskedQuestions[random-1];
  
@@ -117,60 +198,79 @@ export const getQuestion = (
 
 //for Discography component
 export const infoAboutCds = [
-  [cd4, "Young heart", "2021", `
-  1. The Witching Hour Intro,
-2. Voyager,
-3. Loneliness,
-4. The Otherside,
-5. Surrender,
-6. Nobody Knows Me Like You Do,
-7. River Song,
-8. Second Hand News,
-9. Deepest Lonely,
-10. Lighthouse,
-11. Chopin Waltz In A Minor Interlude,
-12. Evergreen,
-13. Little Blue,
-14. Celestial Dancers,
-15. New Moon,
-16. Young Heart`],
-  [cd3, "Beautiful Lies", "2016", 
-  `1. Growing Pains,
-  2. Shadow,
-  3. Keeping Your Head Up,
-  4. Deep End,
-  5. Wild Horses,
-  6. Growing Pains,
-  7. Lost It All,
-  8. Silhouette,
-  9. Lifted,
-  10. Take My Heart,
-  11. Hear You Calling,
-  12. Words,
-  13. Save Yourself,
-  14. Unbroken`], 
-  [cd2, "Fire Within", "2012", `
-  1. Wings,
-  2. Heart of Gold,
-  3. Light Me Up,
-  4. Words as Weapons,
-  5. All You Never Say,
-  6. Strange Birds,
-  7. Maybe	Birdy,
-  8. No Angel,
-  9. All About You,
-  10. Standing in the Way of the Light,
-  11. Shine`
- ],
-  [cd1, "Birdy", "2011",`
-  1. 1901	Birdy,
-  2. Skinny Love,
-  3. People Help the People,	
-  4. White Winter Hymnal,
-  5. The District Sleeps Alone Tonight,
-  6. I'll Never Forget You,
-  7. Young Blood,
-  8. Shelter,
-  9. Fire and Rain,
-  10. Without a Word,
-  11. Terrible Love`]]
+  {
+    image: cd4, 
+    title:"Young heart",
+    year: "2021", 
+    songs: `
+    1. The Witching Hour Intro,
+    2. Voyager,
+    3. Loneliness,
+    4. The Otherside,
+    5. Surrender,
+    6. Nobody Knows Me Like You Do,
+    7. River Song,
+    8. Second Hand News,
+    9. Deepest Lonely,
+    10. Lighthouse,
+    11. Chopin Waltz In A Minor Interlude,
+    12. Evergreen,
+    13. Little Blue,
+    14. Celestial Dancers,
+    15. New Moon,
+    16. Young Heart`
+  },
+  {
+    image: cd3, 
+    title:"Beautiful Lies",
+    year: "2016", 
+    songs: `1. Growing Pains,
+    2. Shadow,
+    3. Keeping Your Head Up,
+    4. Deep End,
+    5. Wild Horses,
+    6. Growing Pains,
+    7. Lost It All,
+    8. Silhouette,
+    9. Lifted,
+    10. Take My Heart,
+    11. Hear You Calling,
+    12. Words,
+    13. Save Yourself,
+    14. Unbroken`
+  }, 
+  { 
+    image: cd2,
+    title: "Fire Within", 
+    year: "2012", 
+    songs:`
+    1. Wings,
+    2. Heart of Gold,
+    3. Light Me Up,
+    4. Words as Weapons,
+    5. All You Never Say,
+    6. Strange Birds,
+    7. Maybe	Birdy,
+    8. No Angel,
+    9. All About You,
+    10. Standing in the Way of the Light,
+    11. Shine`
+},
+  {
+    image: cd1, 
+    title: "Birdy",
+    year: "2011",
+    songs: `
+    1. 1901	Birdy,
+    2. Skinny Love,
+    3. People Help the People,	
+    4. White Winter Hymnal,
+    5. The District Sleeps Alone Tonight,
+    6. I'll Never Forget You,
+    7. Young Blood,
+    8. Shelter,
+    9. Fire and Rain,
+    10. Without a Word,
+    11. Terrible Love`
+  }
+]
