@@ -17,63 +17,20 @@ $max-dimm-for-two-img: 250px;
     font-size: .7em;
     overflow-y: auto;
     overflow-x: hidden;
-    // margin: 0 auto;
-    // padding: 0;
     top:0;
     left:0;
-    // top: 50%;  /* position the top  edge of the element at the middle of the parent */
-    // left: 50%; /* position the left edge of the element at the middle of the parent */
-
-    // transform: translate(-50%, -50%);
-  //  display: flex;
-  //  flex-flow:  column wrap;
-  //   overflow: hidden;
-
     & > p {
-      // background-color: yellow;
       width: fit-content;
       text-align: center; 
-      // width: $width;
       margin: 0 auto;
     }
   }
 }
 
-@function str-insert($string, $insert, $index) {
-  // Avoid making new strings if we don't need to.
-  @if string.length($string) == 0 {
-    @return $insert;
-  }
-
-  $before: string.slice($string, 0, $index);
-  $after: string.slice($string, $index);
-  @return $before + $insert + $after;
-}
-
-@mixin img-hover{
-  // img {
-  //   //transform: translateX(0%);
-  //   // transition: transform 2s;
-    
-  // }
-  
-  // img:hover {
-  //   // transform: translateX(100%);
-  //   // animation-duration: 1.5s;
-  //   // animation-name: slide-to-right;
-  //   // -webkit-animation-fill-mode: forwards;
-  //   // animation-fill-mode: forwards;
-  //   // animation-iteration-count: 1;
-    
-  // }
-}
-
 
 @mixin for-img {
   transition: transform 1.5s ease-in-out;
-  // align-self: center;
   z-index: 2;
-  // display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -83,7 +40,8 @@ $max-dimm-for-two-img: 250px;
 @mixin disc-container {
   box-sizing: content-box;
   width: 100%;
-  padding: 0;
+  max-width: 250px;
+  padding: 0 30px;
   margin: 0;
   margin-bottom: 1em;
   display: grid;
@@ -105,8 +63,7 @@ $max-dimm-for-two-img: 250px;
       .disc-img {
         padding: 0;
         margin: 0;
-        height: 100%;
-        width: 100%;
+        // max-height: min-content;
         border:none;
         display: grid;
         position: relative;
@@ -115,13 +72,13 @@ $max-dimm-for-two-img: 250px;
         @include flex-text(60vw);
         > div {
           overflow-y: scroll;
+          max-width: 250px;
         }
         img {
           height: auto;
           width: 100%;
           @include for-img;
         }
-        @include img-hover;
       }
       .disc-text {
         align-self: center;
@@ -143,7 +100,6 @@ $max-dimm-for-two-img: 250px;
           text-align: left;
           align-self: left;
           font-family: $font;
-          // font-size: .9em;
           margin-left: 3em;
           color: $big-font-color;
         }
@@ -177,15 +133,15 @@ $max-dimm-for-two-img: 250px;
         max-height: $max-dimm-for-two-img;
         & > div {
           width:fit-content;
-          overflow-y: scroll;
+          overflow-y: auto;
         }
         img {
           height: auto;
-          width: 100%;
+          max-width: 100%;
+          width: auto;
           max-width: $max-dimm-for-two-img;
           @include for-img;
         }
-        @include img-hover;
       }
       .disc-text {
         align-self: center;
@@ -207,7 +163,6 @@ $max-dimm-for-two-img: 250px;
           text-align: right;
           align-self: right;
           font-family: $font;
-          // font-size: .9em;
           margin-left: 3em;
           color: $big-font-color;
         }
@@ -230,7 +185,6 @@ $max-dimm-for-two-img: 250px;
   display: grid;
   justify-content: center;
   overflow-x: hidden;
-  // width: 100%;
   display: relative;
   left: 50%;
   transition: translateX(-50%);
@@ -284,9 +238,6 @@ textarea {
 
 header{ 
   margin: 0;
-  // padding: 10px;
-  // max-width: 800px;
-  // border: 5px dotted $big-font-color;
   .header-wrapper {
     justify-self: center;
     font-family: $font;
@@ -297,7 +248,6 @@ header{
     height: 100%;
     min-height: 100%;
     max-height: 100%;
-    // overflow: hidden;
     h1 {
       font-size: 3em;
       position: absolute;
@@ -306,16 +256,14 @@ header{
       margin: 0;
       top: 10%; 
       left: 25%;
-      // right: 80%;
       color: $big-font-color;
       animation-duration: 4s;
       animation-name: to-bottom;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
-      // transition: color 1s ease-in;
     }
     h1:hover {
-      color: rgb(46, 18, 18);//$bg-color;
+      color: rgb(46, 18, 18);
       /* offset-x | offset-y | blur-radius | color */
       text-shadow: 1px 1px 12px $big-font-color;
     }
@@ -329,18 +277,10 @@ header{
       position: relative;
       margin: 0; 
       padding: 0;
-      // top: 50%;
-      // left: 50%;
-      // transition: translate(-50%, -50%);
-      // animation-duration: 3s;
-      // animation-name: to-left;
       object-fit: cover;
       object-position: 0% 0%;
-      // -webkit-animation-fill-mode: forwards;
-      // animation-fill-mode: forwards;
     }
     img:hover {
-      
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
@@ -366,7 +306,6 @@ header{
   .videos {
     display: grid;
     grid-auto-flow: column;
-    // grid-template-areas: "main-video list-of-videos";
     grid-template-columns: 70% 20%;
     padding-bottom: 5%;
     justify-content: center;
@@ -374,19 +313,14 @@ header{
       position: relative;
       top: 50%;
       left: 50%;
-      // width: 60%;
       transform: translate(-50%, -50%)
-      // border: 2px solid black;
     }
     
     .videos-list {
-      // position: relative;
-      // top: 0;
-      // left: 65%;
-      // width: 20%;
+
       border: 2px solid $bg-color;
       max-height: 270px;
-      overflow-y: scroll;
+      overflow-y: auto;
       .video {
         padding:0;
         margin: 0;
@@ -402,7 +336,6 @@ header{
           width: 80%;
           height: auto;
           position: relative;
-          // top: 60%;
           left: 50%;
           transform: translateX(-50%);
         }
@@ -417,7 +350,7 @@ header{
 #form {
   width: 50%;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: $bg-color;
   border-left: 1px solid $border-color;
   margin: 0;
@@ -457,10 +390,11 @@ header{
 
   #discs {
     @include discs-two-columns;
+    font-size: 1.5em;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 770px) {
   header{ 
     .header-wrapper {
       h1 {
@@ -482,9 +416,29 @@ header{
 
   #discs {
     @include discs;
+    .disc-container {
+      // max-width: 250px;
+      .disc-img {
+        @include flex-text(fit-content);
+        & > div {
+          width: fit-content; //to make text not picking out under img
+          // height: fit-content; 
+           max-height: fit-content;
+        /* width: 60vw;*/
+        }
+      }
+      
+    }
+    
   }
  
 }
+@media (min-width: 770px) {
+  #discs {
+    @include discs-two-columns;
+  }
+}
+
 
 @media screen and (orientation:landscape) {
   main div iframe {
@@ -493,29 +447,20 @@ header{
   height: max-content;
   margin: 0 1em 2em 1em; 
   }
-  #discs {
-    @include discs-two-columns;
-  }
 
   textarea {
     width: 90%;
   }
   .verification {
-    //top: 5vh;
-    //left: 20%;
     position: fixed;
     z-index: 4;
   }
 }
 .verification {
-  // width: 60%;
-  // min-height: 40%;
-  //max-height: max-content;
   justify-self: center;
   justify-content: center;
   background-image: './../form-bg-mikhail-nilov.jpg';
   background: $bg-color;
-  //border-radius: 5px;
   border: 1px solid $border-color;
   margin: 0;
   padding: 0 0 1em 0;
@@ -527,7 +472,6 @@ header{
 }
 
 #exit {
-  //justify-self: right;
   background: $error-text-color;
   color: white;
   border-radius: 0;
@@ -567,18 +511,9 @@ header{
   }
   100% {
     transform: translate(50vw, 0);
-    // width: 50%;
+
   }
 }
-
-// @keyframes to-left {
-//   0% {
-//     transform: translateX(-10%);
-//   }
-//   100% {
-//     transform: translateX(0%);
-//   }
-// }
 
 @keyframes to-bottom {
   0% {
@@ -589,29 +524,3 @@ header{
   }
 }
 
-// @keyframes slideout {
-//   0% {
-//     transform: translate(100%, 0);
-//   }
-//   100% {
-//     transform: translate();
-//   }
-// }
-
-@keyframes slide-to-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes slide-to-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
