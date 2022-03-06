@@ -143,7 +143,7 @@ header .header-wrapper img:hover {
 .video-section .videos .videos-list {
   border: 2px solid #e9f4f3;
   max-height: 270px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .video-section .videos .videos-list .video {
   padding: 0;
@@ -168,7 +168,7 @@ header .header-wrapper img:hover {
 #form {
   width: 50%;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: #e9f4f3;
   border-left: 1px solid #262d35;
   margin: 0;
@@ -205,6 +205,7 @@ header .header-wrapper img:hover {
 
   #discs {
     max-width: 90%;
+    font-size: 1.5em;
   }
   #discs .disc-wrapper {
     padding: 0 auto;
@@ -215,7 +216,8 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container {
     box-sizing: content-box;
     width: 100%;
-    padding: 0;
+    max-width: 250px;
+    padding: 0 30px;
     margin: 0;
     margin-bottom: 1em;
     display: grid;
@@ -254,11 +256,12 @@ header .header-wrapper img:hover {
   }
   #discs .disc-wrapper .disc-container .disc-img > div {
     width: fit-content;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   #discs .disc-wrapper .disc-container .disc-img img {
     height: auto;
-    width: 100%;
+    max-width: 100%;
+    width: auto;
     max-width: 250px;
     transition: transform 1.5s ease-in-out;
     z-index: 2;
@@ -289,7 +292,7 @@ header .header-wrapper img:hover {
     color: #f78845;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 770px) {
   header .header-wrapper h1 {
     top: 5%;
     left: 8%;
@@ -316,7 +319,8 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container {
     box-sizing: content-box;
     width: 100%;
-    padding: 0;
+    max-width: 250px;
+    padding: 0 30px;
     margin: 0;
     margin-bottom: 1em;
     display: grid;
@@ -327,8 +331,6 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container .disc-img {
     padding: 0;
     margin: 0;
-    height: 100%;
-    width: 100%;
     border: none;
     display: grid;
     position: relative;
@@ -353,6 +355,7 @@ header .header-wrapper img:hover {
   }
   #discs .disc-wrapper .disc-container .disc-img > div {
     overflow-y: scroll;
+    max-width: 250px;
   }
   #discs .disc-wrapper .disc-container .disc-img img {
     height: auto;
@@ -386,15 +389,29 @@ header .header-wrapper img:hover {
     margin-left: 3em;
     color: #f78845;
   }
-}
-@media screen and (orientation: landscape) {
-  main div iframe {
-    width: auto;
-    max-width: 90%;
-    height: max-content;
-    margin: 0 1em 2em 1em;
+  #discs .disc-container .disc-img > div {
+    position: relative;
+    max-height: fit-content;
+    width: fit-content;
+    text-align: left;
+    font-size: 0.7em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
   }
-
+  #discs .disc-container .disc-img > div > p {
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+  }
+  #discs .disc-container .disc-img > div {
+    width: fit-content;
+    max-height: fit-content;
+    /* width: 60vw;*/
+  }
+}
+@media (min-width: 770px) {
   #discs {
     max-width: 90%;
   }
@@ -407,7 +424,8 @@ header .header-wrapper img:hover {
   #discs .disc-wrapper .disc-container {
     box-sizing: content-box;
     width: 100%;
-    padding: 0;
+    max-width: 250px;
+    padding: 0 30px;
     margin: 0;
     margin-bottom: 1em;
     display: grid;
@@ -446,11 +464,12 @@ header .header-wrapper img:hover {
   }
   #discs .disc-wrapper .disc-container .disc-img > div {
     width: fit-content;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   #discs .disc-wrapper .disc-container .disc-img img {
     height: auto;
-    width: 100%;
+    max-width: 100%;
+    width: auto;
     max-width: 250px;
     transition: transform 1.5s ease-in-out;
     z-index: 2;
@@ -479,6 +498,14 @@ header .header-wrapper img:hover {
     font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
     color: #f78845;
+  }
+}
+@media screen and (orientation: landscape) {
+  main div iframe {
+    width: auto;
+    max-width: 90%;
+    height: max-content;
+    margin: 0 1em 2em 1em;
   }
 
   textarea {
@@ -554,21 +581,5 @@ header .header-wrapper img:hover {
   }
   100% {
     transform: translateY(25%);
-  }
-}
-@keyframes slide-to-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-@keyframes slide-to-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
   }
 }
