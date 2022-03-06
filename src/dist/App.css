@@ -410,6 +410,67 @@ header .header-wrapper img:hover {
     max-height: fit-content;
     /* width: 60vw;*/
   }
+
+  .video-section {
+    margin: 1.5em 10%;
+    padding: 1em;
+  }
+  .video-section .videos {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, auto);
+    padding-bottom: 5%;
+    justify-content: center;
+  }
+  .video-section .videos .videos-main {
+    order: 2;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .video-section .videos .videos-list {
+    display: grid;
+    order: 1;
+    border: 2px solid #e9f4f3;
+    height: max-content;
+    max-height: fit-content;
+    overflow-x: auto;
+    overflow-y: hidden;
+    grid-auto-flow: column;
+    position: relative;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  .video-section .videos .videos-list .video {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+  .video-section .videos .videos-list .video h6 {
+    order: 2;
+    position: relative;
+    top: 0;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+  .video-section .videos .videos-list .videodiv {
+    order: 1;
+    padding: 0;
+    margin: 0;
+  }
+  .video-section .videos .videos-list .videodiv img {
+    display: inline-block;
+    position: static;
+    left: 0%;
+    transform: translateX(0);
+    padding: 0;
+    margin: 0;
+  }
 }
 @media (min-width: 770px) {
   #discs {
@@ -498,6 +559,12 @@ header .header-wrapper img:hover {
     font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
     color: #f78845;
+  }
+}
+@media (max-width: 380px) {
+  .video-section .videos {
+    grid-template-columns: 100%;
+    padding-bottom: 0;
   }
 }
 @media screen and (orientation: landscape) {
