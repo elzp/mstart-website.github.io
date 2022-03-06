@@ -42,7 +42,6 @@ function Discography(props) {
                 tabIndex="1"
                 onMouseOver={()=>slideInOut(index)}
                 onKeyPress={()=>slideInOut(index)}
-                alt= {it[1]}
                 />
               </div>
               <div 

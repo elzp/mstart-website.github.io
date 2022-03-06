@@ -68,7 +68,7 @@ function Verification(props) {
         },
         3000);
       };
-    }, [text])
+    }, [text, setvisibilityOfVerification, setVisibilityOfForm, setDataFromFormWasSend])
 
     const handleExitButton = () => {
       setVisibilityOfRestartButton(false);
