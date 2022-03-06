@@ -25,7 +25,7 @@ function ContactForm(props) {
   }, [setVisibilityOfForm, visibilityOfVerification, wasDataFromFormSend]);
   useOutsideRef(wrapper, handlesettingVisibilityOfForm)
   
-  const formAreaNames = ["username", "surname", "email", "message", "phone"];
+  const formAreaNames = ["username", "surname", "email", "message", "phone"]; 
   const defaultFormValues = {
       username: "",
       surname: "",
@@ -59,8 +59,7 @@ function ContactForm(props) {
       ){
         setSendingError(""); //clean error of sending
     }
-  }, [errors, formAreaNames, formValues, sendingError
-  ]);
+  }, [errors, formValues, sendingError]);
 
   const handleInputChange = (event, type) => {
     // event.preventDefault();
