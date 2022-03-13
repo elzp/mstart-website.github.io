@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/music-star-website/static/css/main.adee047f.css",
-    "main.js": "/music-star-website/static/js/main.47e4c53b.js",
+    "main.css": "/music-star-website/static/css/main.84afd394.css",
+    "main.js": "/music-star-website/static/js/main.99603021.js",
     "static/js/668.4031bee3.chunk.js": "/music-star-website/static/js/668.4031bee3.chunk.js",
     "static/js/787.ba243923.chunk.js": "/music-star-website/static/js/787.ba243923.chunk.js",
-    "static/media/header-american-songwriter.jpg": "/music-star-website/static/media/header-american-songwriter.7e2840317891560be3d3.jpg",
-    "static/media/1birdy.jpg": "/music-star-website/static/media/1birdy.0ebed2b994db4084792e.jpg",
-    "static/media/4young-heart.jpg": "/music-star-website/static/media/4young-heart.18fc0c855a937e6f87cd.jpg",
-    "static/media/3beautiful-lies.jpg": "/music-star-website/static/media/3beautiful-lies.c96dc54704ed04c9f338.jpg",
-    "static/media/2fire-within.jpg": "/music-star-website/static/media/2fire-within.d5e8263b38de1ab96720.jpg",
+    "static/media/header-american-songwriter.jpg": "/music-star-website/static/media/header-american-songwriter.17f354b6fc2880cae181.jpg",
+    "static/media/2fire-within.jpg": "/music-star-website/static/media/2fire-within.9219f8bea075085251a8.jpg",
+    "static/media/1birdy.jpg": "/music-star-website/static/media/1birdy.4fcf5d7789eeedf99c18.jpg",
+    "static/media/4young-heart.jpg": "/music-star-website/static/media/4young-heart.b2507ca0005385b233d8.jpg",
+    "static/media/3beautiful-lies.jpg": "/music-star-website/static/media/3beautiful-lies.8b0aa1eb1510227448f1.jpg",
     "index.html": "/music-star-website/index.html",
-    "main.adee047f.css.map": "/music-star-website/static/css/main.adee047f.css.map",
-    "main.47e4c53b.js.map": "/music-star-website/static/js/main.47e4c53b.js.map",
+    "main.84afd394.css.map": "/music-star-website/static/css/main.84afd394.css.map",
+    "main.99603021.js.map": "/music-star-website/static/js/main.99603021.js.map",
     "668.4031bee3.chunk.js.map": "/music-star-website/static/js/668.4031bee3.chunk.js.map",
     "787.ba243923.chunk.js.map": "/music-star-website/static/js/787.ba243923.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.adee047f.css",
-    "static/js/main.47e4c53b.js"
+    "static/css/main.84afd394.css",
+    "static/js/main.99603021.js"
   ]
 }
