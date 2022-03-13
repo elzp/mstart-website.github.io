@@ -7,7 +7,7 @@ $btn-bg-color: #f7a572;
 $error-text-color: red;
 $font: 'Impact', 'Anton', sans-serif;
 $max-dimm-for-two-img: 250px;
-
+// #F78B4A  #f78845
 @mixin flex-text($width) {
   & > div {
     position: relative;
@@ -302,6 +302,7 @@ header{
 }
 
 .video-section{
+  background-color: $bg-color;
   @include margin-padding;
   .videos {
     display: grid;
@@ -313,7 +314,14 @@ header{
       position: relative;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%)
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      .fallback {
+        position: absolute;
+        width: 100%;
+        height: 100%; //max-content;
+        background-color: $bg-color;
+      }
     }
     
     .videos-list {

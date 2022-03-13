@@ -124,6 +124,7 @@ header .header-wrapper img:hover {
 }
 
 .video-section {
+  background-color: #e9f4f3;
   margin: 1.5em 10%;
   padding: 1em;
 }
@@ -139,6 +140,13 @@ header .header-wrapper img:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.video-section .videos .videos-main .fallback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e9f4f3;
 }
 .video-section .videos .videos-list {
   border: 2px solid #e9f4f3;

@@ -1,6 +1,7 @@
 import Video from './../Video/Video';
-import {useState} from 'react';
-
+import {useState, lazy, Suspense} from 'react';
+const MainVideo = lazy(()=>import('./../MainVideo/MainVideo'));
+// import MainVideo from './../MainVideo/MainVideo';
 function Videos (){
 
     const videos = [
@@ -19,19 +20,32 @@ function Videos (){
     ]
     
     const [idOfDisplayedVideo, setIdOfDisplayedVideo ] = useState(0);
-    
+    const [ isLoaded, setIsLoaded ] = useState(false);
     return (
         <div className="video-section">
             <h4>Listen some of her songs.</h4>
             <div className="videos">
-              <div className="videos-main">
+              <div>
+              <Suspense 
+              fallback = {
+                <div> Video is loading. </div>
+              } 
+              >
+                <MainVideo
+                chosenVideo = {videos[idOfDisplayedVideo]}
+                setIsLoaded = {setIsLoaded}
+                isLoaded = {isLoaded}
+                /> 
+              </Suspense> 
+              </div>
+              {/* <div className="videos-main">
                 <div className="videos-wrapper"> 
                      <iframe 
                     src={`https://www.youtube.com/embed/${videos[idOfDisplayedVideo].videoId}`} 
                     title={videos[idOfDisplayedVideo].title} 
                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-              </div>
+              </div> */}
               <div className="videos-list">
                 {videos.map((item, index)=>(
                     <Video 
@@ -43,6 +57,7 @@ function Videos (){
                 ))
                 }
               </div>
+              {/* {JSON.stringify(isLoaded)} */}
             </div>
           </div>
     )
