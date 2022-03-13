@@ -34,15 +34,17 @@ function Discography(props) {
             <div className="disc-container">
               <div key={`dev-${index}`}
               className="disc-img">
-                <div>
-                {it.songs.split(",").map(it1=>(<p>{it1}</p>))}
-                </div>
                 <Image key={`img-${index}`} src={it.image} count={count[index]}
                 alt={`${it.title} cover`}
-                tabIndex="1"
+                tabIndex="0"
                 onMouseOver={()=>slideInOut(index)}
                 onKeyPress={()=>slideInOut(index)}
                 />
+                <div 
+                tabIndex="0"
+                >
+                {it.songs.split(",").map(it1=>(<p>{it1}</p>))}
+                </div>
               </div>
               <div 
               className="disc-text"
