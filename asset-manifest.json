@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/music-star-website/static/css/main.62bc739e.css",
-    "main.js": "/music-star-website/static/js/main.68244c2a.js",
+    "main.css": "/music-star-website/static/css/main.adee047f.css",
+    "main.js": "/music-star-website/static/js/main.47e4c53b.js",
+    "static/js/668.4031bee3.chunk.js": "/music-star-website/static/js/668.4031bee3.chunk.js",
     "static/js/787.ba243923.chunk.js": "/music-star-website/static/js/787.ba243923.chunk.js",
     "static/media/header-american-songwriter.jpg": "/music-star-website/static/media/header-american-songwriter.7e2840317891560be3d3.jpg",
     "static/media/1birdy.jpg": "/music-star-website/static/media/1birdy.0ebed2b994db4084792e.jpg",
@@ -9,12 +10,13 @@
     "static/media/3beautiful-lies.jpg": "/music-star-website/static/media/3beautiful-lies.c96dc54704ed04c9f338.jpg",
     "static/media/2fire-within.jpg": "/music-star-website/static/media/2fire-within.d5e8263b38de1ab96720.jpg",
     "index.html": "/music-star-website/index.html",
-    "main.62bc739e.css.map": "/music-star-website/static/css/main.62bc739e.css.map",
-    "main.68244c2a.js.map": "/music-star-website/static/js/main.68244c2a.js.map",
+    "main.adee047f.css.map": "/music-star-website/static/css/main.adee047f.css.map",
+    "main.47e4c53b.js.map": "/music-star-website/static/js/main.47e4c53b.js.map",
+    "668.4031bee3.chunk.js.map": "/music-star-website/static/js/668.4031bee3.chunk.js.map",
     "787.ba243923.chunk.js.map": "/music-star-website/static/js/787.ba243923.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.62bc739e.css",
-    "static/js/main.68244c2a.js"
+    "static/css/main.adee047f.css",
+    "static/js/main.47e4c53b.js"
   ]
 }
