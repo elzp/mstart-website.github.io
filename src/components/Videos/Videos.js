@@ -23,7 +23,7 @@ function Videos (){
     const [ isLoaded, setIsLoaded ] = useState(false);
     return (
         <div className="video-section">
-            <h4>Listen some of her songs.</h4>
+            <h5>Listen some of her songs.</h5>
             <div className="videos">
               <div>
               <Suspense 
