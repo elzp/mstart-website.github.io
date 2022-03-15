@@ -7,6 +7,9 @@ $btn-bg-color: #f7a572;
 $error-text-color: red;
 $font: 'Impact', 'Anton', sans-serif;
 $max-dimm-for-two-img: 250px;
+$scroll-width: 10px;
+$small-font-color: #262d35;
+
 // #F78B4A  #f78845
 @mixin flex-text($width) {
   & > div {
@@ -179,6 +182,29 @@ $max-dimm-for-two-img: 250px;
 * {
   box-sizing: border-box;
 }
+
+*::-webkit-scrollbar {//addresses the background of the bar itself. It is usually covered by the other elements
+  width: $scroll-width;
+}
+#form::-webkit-scrollbar {//addresses the background of the bar itself. It is usually covered by the other elements
+  width: $scroll-width + 5px;
+}
+*::-webkit-scrollbar-button { //addresses the directional buttons on the scrollbar
+  background-color: $small-font-color;
+  height: 2px;
+}
+
+body::-webkit-scrollbar-track-piece{ //is the top-most layer of the the progress bar not covered by the draggable scrolling element (thumb)
+  border-left: 2px solid $small-font-color;
+  width: 20px;
+}
+*::-webkit-scrollbar-thumb{ //addresses the draggable scrolling element that resizes depending on the size of the scrollable element
+  background-color: $big-font-color;
+  }
+body::-webkit-scrollbar-thumb{ //addresses the draggable scrolling element that resizes depending on the size of the scrollable element
+  border-left: 2px solid $small-font-color;
+}
+
 
 .App {
   text-align: center;
