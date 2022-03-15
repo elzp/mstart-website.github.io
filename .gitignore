@@ -8,6 +8,7 @@
 # *.scss
 # testing
 /coverage
+/src/older-imgs
 
 # production
 /build

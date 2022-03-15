@@ -81,7 +81,7 @@ header .header-wrapper h1 {
   margin: 0;
   top: 10%;
   left: 25%;
-  color: #f78845;
+  color: #e95f0e;
   animation-duration: 4s;
   animation-name: to-bottom;
   -webkit-animation-fill-mode: forwards;
@@ -90,7 +90,7 @@ header .header-wrapper h1 {
 header .header-wrapper h1:hover {
   color: #2e1212;
   /* offset-x | offset-y | blur-radius | color */
-  text-shadow: 1px 1px 12px #f78845;
+  text-shadow: 1px 1px 12px #e95f0e;
 }
 header .header-wrapper div {
   padding: 0;
@@ -119,11 +119,12 @@ header .header-wrapper img:hover {
 }
 
 .about > div:nth-child(-n+4):hover {
-  background-color: #f78845;
+  background-color: #e95f0e;
   color: #e9f4f3;
 }
 
 .video-section {
+  background-color: #e9f4f3;
   margin: 1.5em 10%;
   padding: 1em;
 }
@@ -139,6 +140,13 @@ header .header-wrapper img:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.video-section .videos .videos-main .fallback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e9f4f3;
 }
 .video-section .videos .videos-list {
   border: 2px solid #e9f4f3;
@@ -279,7 +287,7 @@ header .header-wrapper img:hover {
     grid-auto-flow: column;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
-    color: #f78845;
+    color: #e95f0e;
     font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
@@ -289,7 +297,7 @@ header .header-wrapper img:hover {
     align-self: right;
     font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
-    color: #f78845;
+    color: #e95f0e;
   }
 }
 @media (max-width: 770px) {
@@ -378,7 +386,7 @@ header .header-wrapper img:hover {
     font-family: "Impact", "Anton", sans-serif;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
-    color: #f78845;
+    color: #e95f0e;
     text-align: right;
     max-width: max-content;
   }
@@ -387,7 +395,7 @@ header .header-wrapper img:hover {
     align-self: left;
     font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
-    color: #f78845;
+    color: #e95f0e;
   }
   #discs .disc-container .disc-img > div {
     position: relative;
@@ -548,7 +556,7 @@ header .header-wrapper img:hover {
     grid-auto-flow: column;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
-    color: #f78845;
+    color: #e95f0e;
     font-family: "Impact", "Anton", sans-serif;
     text-align: left;
     max-width: fit-content;
@@ -558,7 +566,7 @@ header .header-wrapper img:hover {
     align-self: right;
     font-family: "Impact", "Anton", sans-serif;
     margin-left: 3em;
-    color: #f78845;
+    color: #e95f0e;
   }
 }
 @media (max-width: 380px) {
@@ -622,7 +630,7 @@ header .header-wrapper img:hover {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.3em;
-  background-color: #f78845;
+  background-color: #e95f0e;
   color: black;
   width: 80%;
 }
