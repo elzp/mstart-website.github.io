@@ -2,6 +2,32 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+#form::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-button {
+  background-color: #262d35;
+  height: 2px;
+}
+
+body::-webkit-scrollbar-track-piece {
+  border-left: 2px solid #262d35;
+  width: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #e95f0e;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-left: 2px solid #262d35;
+}
+
 .App {
   text-align: center;
   display: grid;
