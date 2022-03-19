@@ -30,7 +30,7 @@ function Discography(props) {
   return (
     <div id="discs">
       <h4>Discography</h4>
-      <h5>Hover over or focus and click "enter" on image to see tracklists.</h5>
+      <h5><span>Hover over</span> or <span>focus and click "enter" on</span> image to see tracklists.</h5>
       <div className="disc-wrapper">
          {
            cdsArray.map((it, index)=>{
