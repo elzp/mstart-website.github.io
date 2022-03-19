@@ -28,6 +28,10 @@ body::-webkit-scrollbar-thumb {
   border-left: 2px solid #262d35;
 }
 
+span {
+  text-decoration: underline;
+}
+
 .App {
   text-align: center;
   display: grid;
@@ -241,6 +245,11 @@ header .header-wrapper img:hover {
     max-width: 90%;
     font-size: 1.5em;
   }
+  #discs h5 {
+    text-transform: uppercase;
+    color: #e95f0e;
+    font-size: 0.5em;
+  }
   #discs .disc-wrapper {
     padding: 0 auto;
     display: grid;
@@ -342,6 +351,11 @@ header .header-wrapper img:hover {
 
   #discs {
     max-width: 1024px;
+  }
+  #discs h5 {
+    text-transform: uppercase;
+    color: #e95f0e;
+    font-size: 0.5em;
   }
   #discs .disc-wrapper {
     padding: 0 auto;
@@ -509,6 +523,11 @@ header .header-wrapper img:hover {
 @media (min-width: 770px) {
   #discs {
     max-width: 90%;
+  }
+  #discs h5 {
+    text-transform: uppercase;
+    color: #e95f0e;
+    font-size: 0.5em;
   }
   #discs .disc-wrapper {
     padding: 0 auto;

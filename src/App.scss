@@ -52,9 +52,17 @@ $small-font-color: #262d35;
   justify-self: center;
   grid-auto-flow: row;
 }
+@mixin custom-h5 {
+  text-transform: uppercase;
 
+  color: $big-font-color;
+  font-size: .5em;
+}
 @mixin discs {
   max-width: 1024px;
+  h5{
+    @include custom-h5;
+  }
   .disc-wrapper {
     padding: 0 auto;
     display: grid;
@@ -114,6 +122,9 @@ $small-font-color: #262d35;
 
 @mixin discs-two-columns {
   max-width: 90%;
+  h5 {
+    @include custom-h5;
+  }
   .disc-wrapper {
     padding: 0 auto;
     display:grid;
@@ -204,7 +215,9 @@ body::-webkit-scrollbar-track-piece{ //is the top-most layer of the the progress
 body::-webkit-scrollbar-thumb{ //addresses the draggable scrolling element that resizes depending on the size of the scrollable element
   border-left: 2px solid $small-font-color;
 }
-
+span {
+  text-decoration: underline;
+}
 
 .App {
   text-align: center;
