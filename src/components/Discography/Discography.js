@@ -12,8 +12,11 @@ function Discography(props) {
   const cdsArray = infoAboutCds;
   const [count, setcount] =useState(//0);
   {0:false,1:false,2:false,3:false});
-
+  const [tabIndex, setTabIndex] =useState(//0);
+  {0:"-1",1:"-1",2:"-1",3:"-1"});
   const slideInOut = (index) =>{
+    if(count[index] === false) setTabIndex(prev=>{return {...prev, [index]: "0"};})
+    if(count[index] === true) setTabIndex(prev=>{return {...prev, [index]: "-1"};})
     setcount(count=> 
       { const f = 
        {...count, 
@@ -27,6 +30,7 @@ function Discography(props) {
   return (
     <div id="discs">
       <h4>Discography</h4>
+      <h5>Hover over or focus and click "enter" on image to see tracklists.</h5>
       <div className="disc-wrapper">
          {
            cdsArray.map((it, index)=>{
@@ -38,12 +42,17 @@ function Discography(props) {
                 alt={`${it.title} cover`}
                 tabIndex="0"
                 onMouseOver={()=>slideInOut(index)}
-                onKeyPress={()=>slideInOut(index)}
+                onKeyPress={(event)=>{
+                  if(event.key === "Enter") slideInOut(index);
+                }}
                 />
                 <div 
-                tabIndex="0"
+                tabIndex={tabIndex[index]}
                 >
-                {it.songs.split(",").map(it1=>(<p>{it1}</p>))}
+                {it.songs.split(",").map(it1=>(<p 
+                tabIndex={tabIndex[index]}
+                onFocus={event => console.log(event.target)}
+                >{it1}</p>))}
                 </div>
               </div>
               <div 
