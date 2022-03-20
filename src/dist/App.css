@@ -328,9 +328,9 @@ header .header-wrapper img:hover {
     text-align: center;
     margin: 0;
     padding: 0;
-    max-width: fit-content;
     display: grid;
     grid-auto-flow: column;
+    grid-template-columns: 70% 30%;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #e95f0e;
@@ -339,10 +339,9 @@ header .header-wrapper img:hover {
     max-width: fit-content;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
-    text-align: right;
-    align-self: right;
+    text-align: left;
+    align-self: left;
     font-family: "Impact", "Anton", sans-serif;
-    margin-left: 3em;
     color: #e95f0e;
   }
 }
@@ -429,25 +428,21 @@ header .header-wrapper img:hover {
   }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
-    align-content: center;
-    text-align: center;
     margin: 0;
     padding: 0;
-    max-width: fit-content;
-    display: flex;
-    flex-direction: row;
+    max-width: 100%;
+    grid-template-columns: 70% 30%;
     font-family: "Impact", "Anton", sans-serif;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #e95f0e;
-    text-align: right;
+    text-align: left;
     max-width: max-content;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
-    text-align: left;
+    text-align: right;
     align-self: left;
     font-family: "Impact", "Anton", sans-serif;
-    margin-left: 3em;
     color: #e95f0e;
   }
   #discs .disc-container .disc-img > div {
@@ -611,9 +606,9 @@ header .header-wrapper img:hover {
     text-align: center;
     margin: 0;
     padding: 0;
-    max-width: fit-content;
     display: grid;
     grid-auto-flow: column;
+    grid-template-columns: 70% 30%;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #e95f0e;
@@ -622,10 +617,9 @@ header .header-wrapper img:hover {
     max-width: fit-content;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
-    text-align: right;
-    align-self: right;
+    text-align: left;
+    align-self: left;
     font-family: "Impact", "Anton", sans-serif;
-    margin-left: 3em;
     color: #e95f0e;
   }
 }
