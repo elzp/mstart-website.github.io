@@ -28,7 +28,15 @@ body::-webkit-scrollbar-thumb {
   border-left: 2px solid #262d35;
 }
 
-span {
+.big-letters {
+  text-transform: uppercase;
+}
+
+.small-letters {
+  text-transform: lowercase;
+}
+
+.underline {
   text-decoration: underline;
 }
 
@@ -225,6 +233,7 @@ header .header-wrapper img:hover {
 
 @media (min-width: 380px) {
   .videos-wrapper {
+    margin-top: 20px;
     width: 100%;
     position: relative;
     padding-top: calc(100%*0.5625);
@@ -246,11 +255,13 @@ header .header-wrapper img:hover {
     font-size: 1.5em;
   }
   #discs h5 {
-    text-transform: uppercase;
+    padding: 5px;
+    margin: 0;
     color: #e95f0e;
     font-size: 0.5em;
   }
   #discs .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;
@@ -317,9 +328,9 @@ header .header-wrapper img:hover {
     text-align: center;
     margin: 0;
     padding: 0;
-    max-width: fit-content;
     display: grid;
     grid-auto-flow: column;
+    grid-template-columns: 70% 30%;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #e95f0e;
@@ -328,10 +339,9 @@ header .header-wrapper img:hover {
     max-width: fit-content;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
-    text-align: right;
-    align-self: right;
+    text-align: left;
+    align-self: left;
     font-family: "Impact", "Anton", sans-serif;
-    margin-left: 3em;
     color: #e95f0e;
   }
 }
@@ -353,11 +363,13 @@ header .header-wrapper img:hover {
     max-width: 1024px;
   }
   #discs h5 {
-    text-transform: uppercase;
+    padding: 5px;
+    margin: 0;
     color: #e95f0e;
     font-size: 0.5em;
   }
   #discs .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;
@@ -416,25 +428,21 @@ header .header-wrapper img:hover {
   }
   #discs .disc-wrapper .disc-container .disc-text {
     align-self: center;
-    align-content: center;
-    text-align: center;
     margin: 0;
     padding: 0;
-    max-width: fit-content;
-    display: flex;
-    flex-direction: row;
+    max-width: 100%;
+    grid-template-columns: 70% 30%;
     font-family: "Impact", "Anton", sans-serif;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #e95f0e;
-    text-align: right;
+    text-align: left;
     max-width: max-content;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
-    text-align: left;
+    text-align: right;
     align-self: left;
     font-family: "Impact", "Anton", sans-serif;
-    margin-left: 3em;
     color: #e95f0e;
   }
   #discs .disc-container .disc-img > div {
@@ -525,11 +533,13 @@ header .header-wrapper img:hover {
     max-width: 90%;
   }
   #discs h5 {
-    text-transform: uppercase;
+    padding: 5px;
+    margin: 0;
     color: #e95f0e;
     font-size: 0.5em;
   }
   #discs .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;
@@ -596,9 +606,9 @@ header .header-wrapper img:hover {
     text-align: center;
     margin: 0;
     padding: 0;
-    max-width: fit-content;
     display: grid;
     grid-auto-flow: column;
+    grid-template-columns: 70% 30%;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-title {
     color: #e95f0e;
@@ -607,10 +617,9 @@ header .header-wrapper img:hover {
     max-width: fit-content;
   }
   #discs .disc-wrapper .disc-container .disc-text .disc-year {
-    text-align: right;
-    align-self: right;
+    text-align: left;
+    align-self: left;
     font-family: "Impact", "Anton", sans-serif;
-    margin-left: 3em;
     color: #e95f0e;
   }
 }
