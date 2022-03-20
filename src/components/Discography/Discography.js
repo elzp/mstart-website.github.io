@@ -30,8 +30,8 @@ function Discography(props) {
   return (
     <div id="discs">
       <h4>Discography</h4>
-      <h5><span>Hover over</span> or <span>focus and click "enter" on</span> image to see tracklists.</h5>
-      <h5><span>For keyboard users</span>: to copy song's title press <span>"c"</span> or "C" when keyboard is focused on title.</h5>
+      <h5 className='big-letters'><span className='underline'>Hover over</span> or <span className='underline'>focus and click "enter" on</span> image to see tracklists.</h5>
+      <h5 className='big-letters'><span className='underline'>For keyboard users</span>: to copy song's title press <span className='small-letters'>"c"</span> or "C" when keyboard is focused on title.</h5>
       <div className="disc-wrapper">
          {
            cdsArray.map((it, index)=>{

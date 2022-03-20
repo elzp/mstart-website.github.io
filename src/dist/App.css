@@ -28,7 +28,15 @@ body::-webkit-scrollbar-thumb {
   border-left: 2px solid #262d35;
 }
 
-span {
+.big-letters {
+  text-transform: uppercase;
+}
+
+.small-letters {
+  text-transform: lowercase;
+}
+
+.underline {
   text-decoration: underline;
 }
 
@@ -225,6 +233,7 @@ header .header-wrapper img:hover {
 
 @media (min-width: 380px) {
   .videos-wrapper {
+    margin-top: 20px;
     width: 100%;
     position: relative;
     padding-top: calc(100%*0.5625);
@@ -246,11 +255,13 @@ header .header-wrapper img:hover {
     font-size: 1.5em;
   }
   #discs h5 {
-    text-transform: uppercase;
+    padding: 5px;
+    margin: 0;
     color: #e95f0e;
     font-size: 0.5em;
   }
   #discs .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;
@@ -353,11 +364,13 @@ header .header-wrapper img:hover {
     max-width: 1024px;
   }
   #discs h5 {
-    text-transform: uppercase;
+    padding: 5px;
+    margin: 0;
     color: #e95f0e;
     font-size: 0.5em;
   }
   #discs .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;
@@ -525,11 +538,13 @@ header .header-wrapper img:hover {
     max-width: 90%;
   }
   #discs h5 {
-    text-transform: uppercase;
+    padding: 5px;
+    margin: 0;
     color: #e95f0e;
     font-size: 0.5em;
   }
   #discs .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;

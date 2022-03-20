@@ -53,8 +53,8 @@ $small-font-color: #262d35;
   grid-auto-flow: row;
 }
 @mixin custom-h5 {
-  text-transform: uppercase;
-
+  padding: 5px;
+  margin: 0;
   color: $big-font-color;
   font-size: .5em;
 }
@@ -64,6 +64,7 @@ $small-font-color: #262d35;
     @include custom-h5;
   }
   .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display: grid;
     grid-auto-flow: row;
@@ -126,6 +127,7 @@ $small-font-color: #262d35;
     @include custom-h5;
   }
   .disc-wrapper {
+    margin-top: 20px;
     padding: 0 auto;
     display:grid;
     grid-auto-flow: row;
@@ -215,7 +217,16 @@ body::-webkit-scrollbar-track-piece{ //is the top-most layer of the the progress
 body::-webkit-scrollbar-thumb{ //addresses the draggable scrolling element that resizes depending on the size of the scrollable element
   border-left: 2px solid $small-font-color;
 }
-span {
+
+.big-letters {
+  text-transform: uppercase;
+}
+
+.small-letters {
+  text-transform: lowercase;
+}
+
+.underline {
   text-decoration: underline;
 }
 
@@ -417,6 +428,7 @@ header{
 @media (min-width: 380px) {
 
       .videos-wrapper {
+        margin-top: 20px;
         width: 100%;
         position: relative;
         padding-top: calc(100%*0.5625);
