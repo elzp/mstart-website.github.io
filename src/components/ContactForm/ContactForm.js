@@ -193,33 +193,33 @@ const notNullErrorText = {
             onChange={(event) => {
             handleInputChange(event, formAreaNames[0]);}}
             />
-            <div className="error"><bold>{errors[0]}</bold></div>
+            <div className="error"><span>{errors[0]}</span></div>
             <p>Your surname:</p>
             <input label="surname"
             value={formValues[formAreaNames[1]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[1])}}
             />
-            <div className="error"><bold>{errors[1]}</bold></div>
+            <div className="error"><span>{errors[1]}</span></div>
             <p>Your e-mail adress:</p>
             <input label="e-mail"
             type="email"
             value={formValues[formAreaNames[2]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[2])}}
             />
-            <div className="error"><bold>{errors[2]}</bold></div>
+            <div className="error"><span>{errors[2]}</span></div>
             <p>Your phone number:</p>
             <input label="phone"
             type="tel"
             value={formValues[formAreaNames[4]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[4])}}
             />
-            <div className="error"><bold>{errors[4]}</bold></div>
+            <div className="error"><span>{errors[4]}</span></div>
             <p>Tell us e.g. when and where you want us to perform concert:</p>
             <textarea label="message"
             value={formValues[formAreaNames[3]]}
             onChange={(event) => {handleInputChange(event, formAreaNames[3])}}
             />
-            <div className="error"><bold>{errors[3]}</bold></div>
+            <div className="error"><span>{errors[3]}</span></div>
             <div className="error">{sendingError}</div>
         </div>
         <div><button 

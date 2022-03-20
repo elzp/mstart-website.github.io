@@ -96,7 +96,7 @@ function Verification(props) {
         value={item.answer}
         >{item.answer}</button>
         </div>)}
-        <div className="comunicates"><bold>{text}</bold></div>
+        <div className="comunicates"><span>{text}</span></div>
         <div>
           {visibilityOfRestartButton &&
             <button
