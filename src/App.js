@@ -3,7 +3,7 @@ import img from './header-american-songwriter.jpg'
 import About from './components/About/About'
 import Videos from './components/Videos/Videos'
 import ContactForm from './components/ContactForm/ContactForm'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
@@ -25,6 +25,16 @@ function App() {
   // const handleSendingButtonClick = () =>{
   //   setvisibilityOfVerification(!visibilityOfVerification); 
   // }
+
+  // add escaping from form
+  useEffect( () => {
+    // subscribe functionality
+    document.addEventListener("keydown", (event)=>{if(event.key ==="Escape") setVisibilityOfForm(false)})
+    // unsubscribe functionality
+    return () => {
+       document.removeEventListener("keydown", (event)=>{if(event.key ==="Escape") setVisibilityOfForm(false)})
+    };
+ }, [setVisibilityOfForm])
 
   return (
     <div className="App">
