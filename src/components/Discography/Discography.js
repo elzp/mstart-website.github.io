@@ -36,7 +36,7 @@ function Discography(props) {
          {
            cdsArray.map((it, index)=>{
             return (
-            <div className="disc-container">
+            <div className="disc-container" key={`dev-${index}`}>
               <div key={`dev-${index}`}
               className="disc-img">
                 <Image key={`img-${index}`} src={it.image} count={count[index]}
@@ -51,6 +51,7 @@ function Discography(props) {
                 tabIndex={tabIndex[index]}
                 >
                 {it.songs.split(",").map(it1=>(<p 
+                key={it1}
                 tabIndex={tabIndex[index]}
                 onKeyPress={(event) =>{if(event.key ==="c" || event.key ==="C") navigator.clipboard.writeText(it1)}
                 }

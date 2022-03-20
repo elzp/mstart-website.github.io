@@ -49,6 +49,7 @@ function Videos (){
               <div className="videos-list">
                 {videos.map((item, index)=>(
                     <Video 
+                    key={item.title}
                     id={index}
                     videoId={item.videoId} 
                     title={item.title} 

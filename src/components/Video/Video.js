@@ -3,7 +3,7 @@ import './../../dist/App.css';
 function Video (props) {
     const setId = () => props.setIdOfDisplayedVideo(props.id);
     return (
-      <div className="video" onClick={()=>setId()} onkey
+      <div className="video" onClick={()=>setId()} 
       onKeyPress={(event)=>{if(event.key === "Enter") setId()}}
       tabIndex="0"> 
         <h6>{props.title}</h6>
