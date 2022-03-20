@@ -31,6 +31,7 @@ function Discography(props) {
     <div id="discs">
       <h4>Discography</h4>
       <h5><span>Hover over</span> or <span>focus and click "enter" on</span> image to see tracklists.</h5>
+      <h5><span>For keyboard users</span>: to copy song's title press <span>"c"</span> or "C" when keyboard is focused on title.</h5>
       <div className="disc-wrapper">
          {
            cdsArray.map((it, index)=>{
@@ -51,7 +52,8 @@ function Discography(props) {
                 >
                 {it.songs.split(",").map(it1=>(<p 
                 tabIndex={tabIndex[index]}
-                onFocus={event => console.log(event.target)}
+                onKeyPress={(event) =>{if(event.key ==="c" || event.key ==="C") navigator.clipboard.writeText(it1)}
+                }
                 >{it1}</p>))}
                 </div>
               </div>
