@@ -6,3 +6,7 @@
 2. website in version after **5f606f2** commit (with fixed bug: not scrolling in form on all devices [**f76dddd**]): [Birdy Website v.2](https://elzp.github.io/musicstar-website/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# March 2023 Update
+
+Changed **npm** to **yarn** and **react-scripts** to **parcel**.

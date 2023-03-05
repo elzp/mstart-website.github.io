@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /src/unused
+.parcel-cache
 # *.scss
 # testing
 /coverage
