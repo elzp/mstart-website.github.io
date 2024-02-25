@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"7DDVN":[function(require,module,exports) {
+})({"7d2Sd":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = null;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "659a525db929c764";
+var HMR_ENV_HASH = "c57088111ff5b8bb";
+module.bundle.HMR_BUNDLE_ID = "2f80876f01dd6633";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -578,7 +578,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"1xC6H":[function(require,module,exports) {
+},{}],"47W5L":[function(require,module,exports) {
 var Refresh = require("6d18d6bd340e7473");
 var ErrorOverlay = require("74ad5ea14201648c");
 Refresh.injectIntoGlobalHook(window);
@@ -599,11 +599,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"6d18d6bd340e7473":"786KC","74ad5ea14201648c":"1dldy"}],"2avAa":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e5b4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"6d18d6bd340e7473":"5bgD2","74ad5ea14201648c":"7JmiY"}],"7hk6B":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$52f9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e5b4.prelude(module);
+$parcel$ReactRefreshHelpers$52f9.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -662,11 +662,11 @@ exports.default = MainVideo;
 var _c;
 $RefreshReg$(_c, "MainVideo");
 
-  $parcel$ReactRefreshHelpers$e5b4.postlude(module);
+  $parcel$ReactRefreshHelpers$52f9.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["7DDVN","1xC6H"], null, "parcelRequiref09f")
+},{"react/jsx-dev-runtime":"gij1U","react":"6jKMz","@parcel/transformer-js/src/esmodule-helpers.js":"eG7YV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"72jT0"}]},["7d2Sd","47W5L"], null, "parcelRequiref09f")
 
-//# sourceMappingURL=MainVideo.b929c764.js.map
+//# sourceMappingURL=MainVideo.01dd6633.js.map
