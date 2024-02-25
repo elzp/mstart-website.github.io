@@ -1,0 +1,3 @@
+How to publish to gh-pages branch (for using PAGES in GitHub to publish project) with parcel.
+
+https://gist.github.com/OleksiyRudenko/7e94aa2d18927e0c5e65b2b5a1c0e375
